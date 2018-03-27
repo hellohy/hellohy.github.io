@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+    <meta name="description" content="javascript,grahp,hellohy">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="https://hellohy.github.io">
+    
+    <meta name="twitter:image" content="https://hellohy.github.io/tn.png">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Sam">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="javascript,grahp,hellohy">
+    <meta name="og:type" content="website">
+    <meta name="og:url" content="https://hellohy.github.io">
+    <meta name="og:image" itemprop="image primaryImageOfPage" content="https://hellohy.github.io/tn.png">
+    
+    <title>Hellohy</title>
+    <link rel="shortcut icon" href="https://hellohy.github.io/sam.ico" id="favicon">
+    <link rel="stylesheet" href="https://hellohy.github.io/css/style.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104668275-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-104668275-1');
+    </script>
+    
+
+</head>
+
+</html><body><div class="wrap"><div class="section" id="title">用css模拟有滚动条的容器内部元素fixed效果</div><div class="section" id="content">2017-08-14 21:05 &#183; 61 words
+
+<div><span id="tag"><a href="https://hellohy.github.io/tags/css">css</a></span><span id="tag"><a href="https://hellohy.github.io/tags/fixed">fixed</a></span></div><hr/>
+
+<p>通常，大家都知道fixed属性是相对于屏幕视口（viewport)的位置来指定元素位置，元素的位置在屏幕滚动时不会改变。</p>
+
+<h2 id="需求">需求</h2>
+
+<p>在实际项目中，遇到一个问题，如下，有个自适应高度的区域div.container，且该区域在屏幕的位置不固定，它的内部右下角有个固定的按钮Button，当container滚动时，button要固定不动。</p>
+
+<p>很显然，看到这个需求，大家的第一反应就是用position: fixed，可是fixed是相对于整个viewport的位置，如果container位置是固定的，那么我们只要计算好Button相对于viewport的位置就可以了。但是这样不太友好，实际上Button是相对于container的，如果后期container有改动，Button的位置就要重新计算。而且，container的位置可能在布局用中会变化。为了灵活应对需求的变化，我们需要模拟Button相对于container的fixed效果</p>
+
+<h2 id="解决方案">解决方案</h2>
+
+<h3 id="1-js">1.js</h3>
+
+<p>（不推荐）js，无需多言，对Button设置position: absolute，right和bottom的位置由js计算</p>
+
+<h3 id="2-css">2.css</h3>
+
+<p>（推荐) 换个思路，让Button相对于一个窗口大小不会改变的容器absolute定位即可，那么，只需要在外面加层dom就可以了.这样子，l-container固定，position设置relative; container不变，尺寸与l-container一样，可以滚动; Button设置position: absolute。
+详见demo: <a href="https://codepen.io/hellohy/pen/QMOyWR">https://codepen.io/hellohy/pen/QMOyWR</a></p>
+
+<pre><code class="language-html">&lt;div class=&quot;l-container&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    containercontainercontainercontainercontainercontainercontainercon
+    &lt;button&gt;Hello!&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css">.l-container {
+	position: relative;
+	border: 1px solid yellow;
+	width: 200px;
+}
+.container {
+	border: 1px solid red;
+	width: 200px;
+	height: 200px;
+	overflow: auto;
+}
+button{
+	border:1px solid #ccc;
+	cursor:pointer;
+    display:block;
+    margin:auto;
+    position:absolute;
+    bottom:20px;
+	right: 10px;
+}
+</code></pre>
+</div><div class="section bottom-menu"><hr/><p><a href="/posts">back</a>
+ &#183;
+<a href="/posts">文章</a>
+
+&#183; <a href="/gallery">图片</a>
+&#183; <a href="/about">关于我</a>
+&#183; <a href="https://hellohy.github.io">首页</a></p></div><div class="section footer">Hi, my name is Hellohy</div></div></body>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Egret on Hellohy</title>
+    <link>https://hellohy.github.io/tags/egret/</link>
+    <description>Recent content in Egret on Hellohy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 17 Nov 2017 11:19:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://hellohy.github.io/tags/egret/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>egret入门介绍</title>
+      <link>https://hellohy.github.io/posts/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Fri, 17 Nov 2017 11:19:21 +0000</pubDate>
+      
+      <guid>https://hellohy.github.io/posts/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</guid>
+      <description>介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用
+Egret入门指南 简单介绍下egret~
+目录  容器 资源管理 纹理和位图 事件 Tween的使用  容器 DisplayObject |--- DisplayObjectContainer |--- Sprite |--- Stage 舞台 |--- Shape 矢量绘图 |--- Bitmap 位图 |--- TextField 文字  //stage是所有显示对象的&#39;根&#39;，stage下面是一个树状的显示列表 //显示对象容器，使用DisplayObjectContainer var container = new egret.DisplayObjectContainer(); //容器的缩放，旋转，位移将影响到它下面的子节点(即包含的显示对象) container.scaleX = 0.2; container.scaleY = 0.2; //用addChild方法把一个显示对象添加到显示列表 this.addChild(container); //位图是显示对象，纹理不是 var bitmap1 = new egret.Bitmap(RES.getRes(&amp;quot;egretIcon&amp;quot;)); container.addChild(bitmap1); //显示对象的位置和尺寸，相对于stage来说，也受到父容器的影响，也就是说每个显示对象容器，拥有自己的坐标系 bitmap1.x = bitmap1.y = 50;  注意这几个特性：
+DisplayObjectContainer.touchChildren   这个属性在实施性能优化的时候应该很有用。
+ DisplayObjectContainer.removeChildren   移除所有显示对象，一个方便使用的快捷方法</description>
+    </item>
+    
+  </channel>
+</rss>

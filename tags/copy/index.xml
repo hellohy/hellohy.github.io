@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Copy on Hellohy</title>
+    <link>https://hellohy.github.io/tags/copy/</link>
+    <description>Recent content in Copy on Hellohy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 16 Aug 2017 14:46:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://hellohy.github.io/tags/copy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>js深浅拷贝</title>
+      <link>https://hellohy.github.io/posts/js-copy/</link>
+      <pubDate>Wed, 16 Aug 2017 14:46:58 +0000</pubDate>
+      
+      <guid>https://hellohy.github.io/posts/js-copy/</guid>
+      <description>实现js深浅拷贝的几种方法
+浅拷贝 只复制对象的第一层键值对。
+// 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得事先定义好，不然就不能改变实参了。 // 这是由于JavaScript对于对象的传递则是按共享传递的,详见文末题外话 if( !target || typeof target !== &#39;object&#39;){ return; } // 这边最好区别一下对象和数组的复制 for(var key in source){ if(source.hasOwnProperty(key)){ target[key] = source[key]; } } } //测试例子 var arr = [1,2,3]; var arr2 = []; shadowCopy(arr2, arr); console.log(arr2); //[1,2,3] var today = { weather: &#39;Sunny&#39;, date: { week: &#39;Wed&#39; } } var tomorrow = {}; shadowCopy(tomorrow, today); console.</description>
+    </item>
+    
+  </channel>
+</rss>
