@@ -43,6 +43,12 @@
   </url>
   
   <url>
+    <loc>https://hellohy.github.io/</loc>
+    <lastmod>2018-03-22T02:06:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hellohy.github.io/categories/</loc>
     <priority>0</priority>
   </url>
@@ -85,12 +91,6 @@
   
   <url>
     <loc>https://hellohy.github.io/tags/graph/</loc>
-    <lastmod>2018-03-22T02:06:29+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellohy.github.io/</loc>
     <lastmod>2018-03-22T02:06:29+00:00</lastmod>
     <priority>0</priority>
   </url>
