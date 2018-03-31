@@ -1,51 +1,120 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-<head>
+<html lang="zh-CN" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     
-    <meta name="description" content="javascript,grahp,hellohy">
+    	
+    <meta name="generator" content="Hugo 0.38-DEV" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:domain" content="https://hellohy.github.io">
+    <title>javascript实现Tarjan算法寻找有向图的强连通分量 &middot; </title>
+    <meta content="javascript实现Tarjan算法寻找有向图的强连通分量 - " property="og:title">
+    <meta content=" - " property="og:description">    
+    <!-- CSS --> 
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://hellohy.github.iocss/print.css" media="print">
+    <link rel="stylesheet" href="https://hellohy.github.iocss/poole.css">
+    <link rel="stylesheet" href="https://hellohy.github.iocss/hyde.css">
     
-    <meta name="twitter:image" content="https://hellohy.github.io/tn.png">
-    <meta name="twitter:title" property="og:title" itemprop="title name" content="Sam">
-    <meta name="twitter:description" property="og:description" itemprop="description" content="javascript,grahp,hellohy">
-    <meta name="og:type" content="website">
-    <meta name="og:url" content="https://hellohy.github.io">
-    <meta name="og:image" itemprop="image primaryImageOfPage" content="https://hellohy.github.io/tn.png">
-    
-    <title>Hellohy</title>
-    <link rel="shortcut icon" href="https://hellohy.github.io/sam.ico" id="favicon">
-    <link rel="stylesheet" href="https://hellohy.github.io/css/style.css">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104668275-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-104668275-1');
-    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <!-- highlight.js--> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://hellohy.github.iocss/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
     
 
-</head>
+	</head>
+    <body>
+        <div class="sidebar">
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="https://hellohy.github.io"><h1 class="brand"></h1></a>
+			 <img src="/img/about.jpg" alt="Author Image" class="img-circle headshot center"> 
+			<p class="lead">
+				 Your site's description 
+			</p>
+		</div>
+		
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/posts/"> <span>Posts</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
 
-</html><body><div class="wrap"><div class="section" id="title">javascript实现Tarjan算法寻找有向图的强连通分量</div><div class="section" id="content">2018-03-22 02:06 &#183; 301 words
+        <p>
+		<section class="row text-center">
+	
+	
+	
+	&nbsp;<a href="https://github.com/hellohy"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	&nbsp;<a href="mailto:hitcloudy@gmail.com"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
 
-<div><span id="tag"><a href="https://hellohy.github.io/tags/graph">graph</a></span><span id="tag"><a href="https://hellohy.github.io/tags/tarjan">tarjan</a></span></div><hr/>
+        </p>
+		<p class="copyright">&copy; 2018 Hellohy.
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+        </p>
+	</div>
+	<div>
+	</div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>javascript实现Tarjan算法寻找有向图的强连通分量</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> 2018-03-22 02:06
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/graph">graph</a> 
+        
+            <a class="meta" href="/tags/tarjan">tarjan</a>
+        
+      
+      
+      </span>  
+  </div>    
+  
+  
 
 <p>javascript实现Tarjan算法寻找有向图的强连通分量</p>
 
@@ -289,10 +358,20 @@
   return cmpts;
 }
 </code></pre>
-</div><div class="section bottom-menu"><hr/><p><a href="/posts">back</a>
- &#183;
-<a href="/posts">文章</a>
 
-&#183; <a href="/gallery">图片</a>
-&#183; <a href="/about">关于我</a>
-&#183; <a href="https://hellohy.github.io">首页</a></p></div><div class="section footer">Hi, my name is Hellohy</div></div></body>
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+
+            </div>
+        </div>
+        
+                
+    </body>
+</html>
