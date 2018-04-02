@@ -19,7 +19,7 @@
 <meta name="author" content="Hellohy" />
   <meta name="description" content="javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，" />
 
-  <meta name="keywords" content="Hugo, theme, even" />
+  <meta name="keywords" content="Hugo, theme, even, hellohy, javascript" />
 
 
 
@@ -98,7 +98,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/" class="logo">Hellohy</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -122,7 +122,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/" class="logo">Hellohy</a>
 </div>
 
 <nav class="site-navbar">
@@ -151,7 +151,8 @@
       <div class="post-meta">
         <span class="post-time"> 2018-03-22 </span>
         
-        
+        <span class="more-meta"> 约 2137 字 </span>
+        <span class="more-meta"> 预计阅读 5 分钟 </span>
         
       </div>
     </header>
@@ -475,7 +476,25 @@
   </article>
         </div>
         
-  
+  <div id="comments-gitment"></div>
+  <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+    <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+  <script type="text/javascript">
+  const gitment = new Gitment({
+    id: '2018-03-22 02:06:29 \x2b0000 UTC',
+    title: 'javascript实现Tarjan算法寻找有向图的强连通分量',
+    link: decodeURI(location.href),
+    desc: 'javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，',
+    owner: 'hellohy',
+    repo: 'blog-comment',
+    oauth: {
+      client_id: '05de314e8fbaa9589123',
+      client_secret: '665647f2e093602a19ebce634e98108bf1fe9b6d'
+    }
+  })
+  gitment.render('comments-gitment')
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
       </div>
     </main>
 
@@ -519,6 +538,14 @@
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
   <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
 <script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 <script>

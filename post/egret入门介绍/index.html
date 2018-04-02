@@ -19,7 +19,7 @@
 <meta name="author" content="Hellohy" />
   <meta name="description" content="介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用 Egret入门指南 简单介绍下egret~ 目录 容器 资源管理 纹理和位" />
 
-  <meta name="keywords" content="Hugo, theme, even" />
+  <meta name="keywords" content="Hugo, theme, even, hellohy, javascript" />
 
 
 
@@ -98,7 +98,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/" class="logo">Hellohy</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -122,7 +122,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/" class="logo">Hellohy</a>
 </div>
 
 <nav class="site-navbar">
@@ -151,7 +151,8 @@
       <div class="post-meta">
         <span class="post-time"> 2017-11-17 </span>
         
-        
+        <span class="more-meta"> 约 1666 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
     </header>
@@ -384,7 +385,25 @@ tw.to({x:360,y:600},1000,egret.Ease.sineIn);
   </article>
         </div>
         
-  
+  <div id="comments-gitment"></div>
+  <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+    <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+  <script type="text/javascript">
+  const gitment = new Gitment({
+    id: '2017-11-17 11:19:21 \x2b0000 UTC',
+    title: 'egret入门介绍',
+    link: decodeURI(location.href),
+    desc: '介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用 Egret入门指南 简单介绍下egret~ 目录 容器 资源管理 纹理和位',
+    owner: 'hellohy',
+    repo: 'blog-comment',
+    oauth: {
+      client_id: '05de314e8fbaa9589123',
+      client_secret: '665647f2e093602a19ebce634e98108bf1fe9b6d'
+    }
+  })
+  gitment.render('comments-gitment')
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
       </div>
     </main>
 
@@ -428,6 +447,14 @@ tw.to({x:360,y:600},1000,egret.Ease.sineIn);
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
   <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
 <script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 <script>
