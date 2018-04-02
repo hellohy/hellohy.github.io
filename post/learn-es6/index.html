@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>es6-cheatsheet - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Hellohy" />
+  <meta name="description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.39-DEV" />
+
+
+<link rel="canonical" href="https://hellohy.github.io/post/learn-es6/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="es6-cheatsheet" />
+<meta property="og:description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hellohy.github.io/post/learn-es6/" />
+
+
+
+<meta property="article:published_time" content="2016-12-04T23:05:33&#43;00:00"/>
+
+<meta property="article:modified_time" content="2016-12-04T23:05:33&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="es6-cheatsheet">
+<meta itemprop="description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块">
+
+
+<meta itemprop="datePublished" content="2016-12-04T23:05:33&#43;00:00" />
+<meta itemprop="dateModified" content="2016-12-04T23:05:33&#43;00:00" />
+<meta itemprop="wordCount" content="6262">
+
+
+
+<meta itemprop="keywords" content="es6,js," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="es6-cheatsheet"/>
+<meta name="twitter:description" content="这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">es6-cheatsheet</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-12-04 </span>
+        
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#var-versus-let-const">var versus let / const</a></li>
+<li><a href="#replacing-iifes-with-blocks">Replacing IIFEs with Blocks</a></li>
+<li><a href="#arrow-functions">Arrow Functions</a></li>
+<li><a href="#strings">Strings</a>
+<ul>
+<li><a href="#includes">.includes( )</a></li>
+<li><a href="#repeat">.repeat( )</a></li>
+<li><a href="#template-literals">Template Literals</a></li>
+</ul></li>
+<li><a href="#destructuring">Destructuring</a>
+<ul>
+<li><a href="#destructuring-arrays">Destructuring Arrays</a></li>
+<li><a href="#destructuring-objects">Destructuring Objects</a></li>
+</ul></li>
+<li><a href="#modules">Modules</a>
+<ul>
+<li><a href="#exporting-in-commonjs">Exporting in CommonJS</a></li>
+<li><a href="#exporting-in-es6">Exporting in ES6</a></li>
+<li><a href="#importing-in-es6">Importing in ES6</a></li>
+</ul></li>
+<li><a href="#parameters">Parameters</a>
+<ul>
+<li><a href="#default-parameters">Default Parameters</a></li>
+<li><a href="#rest-parameters">Rest Parameters</a></li>
+<li><a href="#named-parameters">Named Parameters</a></li>
+<li><a href="#spread-operator">Spread Operator</a></li>
+</ul></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#symbols">Symbols</a>
+<ul>
+<li><a href="#symbol">Symbol( )</a></li>
+<li><a href="#symbol-for-key">Symbol.for(key)</a></li>
+</ul></li>
+<li><a href="#maps">Maps</a></li>
+<li><a href="#weakmaps">WeakMaps</a></li>
+<li><a href="#promises">Promises</a></li>
+<li><a href="#generators">Generators</a></li>
+<li><a href="#async-await">Async Await</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你
+完成日复一日的开发工作。</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#var-versus-let-const">var 与 let / const 声明</a></li>
+<li><a href="#Replacing-IIFEs-with-Blocks">代码执行块替换立即执行函数</a></li>
+<li><a href="#Arrow-Functions">箭头函数</a></li>
+<li><a href="#Strings">字符串</a></li>
+<li><a href="#Destructuring">解构</a></li>
+<li><a href="#Modules">模块</a></li>
+<li><a href="#Parameters">参数</a></li>
+<li><a href="#Classes">类</a></li>
+<li><a href="#Symbols">Symbols</a></li>
+<li><a href="#Maps">Maps</a></li>
+<li><a href="#WeakMaps">WeakMaps</a></li>
+<li><a href="#Promises">Promises</a></li>
+<li><a href="#Generators">Generators</a></li>
+<li><a href="#Async-Await">Async Await</a></li>
+</ul>
+
+<h2 id="var-versus-let-const">var versus let / const</h2>
+
+<blockquote>
+<p>除了 <code>var</code> 以外，我们现在多了两个新的标识符来声明变量的存储，它们就是 <code>let</code> 和 <code>const</code>。
+不同于 <code>var</code> ，<code>let</code> 和 <code>const</code> 语句不会造成声明提升。</p>
+</blockquote>
+
+<p>一个 <code>var</code> 的例子:</p>
+
+<pre><code class="language-javascript">var snack = 'Meow Mix';
+
+function getFood(food) {
+  if (food) {
+  var snack = 'Friskies';
+  return snack;
+  }
+  return snack;
+}
+
+getFood(false); // undefined
+</code></pre>
+
+<p>让我们再观察下面语句中，使用 <code>let</code> 替换了 <code>var</code> 后的表现：</p>
+
+<pre><code class="language-javascript">let snack = 'Meow Mix';
+
+function getFood(food) {
+  if (food) {
+  let snack = 'Friskies';
+  return snack;
+  }
+  return snack;
+}
+
+getFood(false); // 'Meow Mix'
+</code></pre>
+
+<p>当我们重构使用 <code>var</code> 的老代码时，一定要注意这种变化。盲目使用 <code>let</code> 替换 <code>var</code> 后可能会导致预期意外的结果。</p>
+
+<blockquote>
+<p><strong>注意</strong>：<code>let</code> 和 <code>const</code> 是块级作用域语句。所以在语句块以外引用这些变量时，会造成引用错误 <code>ReferenceError</code>。</p>
+</blockquote>
+
+<pre><code class="language-javascript">console.log(x);
+
+let x = 'hi'; // ReferenceError: x is not defined
+</code></pre>
+
+<blockquote>
+<p><strong>最佳实践</strong>: 在重构老代码时，<code>var</code> 声明需要格外的注意。在创建一个新项目时，使用 <code>let</code> 声明一个变量，使用 <code>const</code> 来声明一个不可改变的常量。</p>
+</blockquote>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="replacing-iifes-with-blocks">Replacing IIFEs with Blocks</h2>
+
+<p>我们以往创建一个 <strong>立即执行函数</strong> 时，一般是在函数最外层包裹一层括号。
+ES6支持块级作用域（更贴近其他语言），我们现在可以通过创建一个代码块（Block）来实现，不必通过创建一个函数来实现，</p>
+
+<pre><code class="language-javascript">(function () {
+  var food = 'Meow Mix';
+}());
+
+console.log(food); // Reference Error
+</code></pre>
+
+<p>使用支持块级作用域的ES6的版本：</p>
+
+<pre><code class="language-javascript">{
+  let food = 'Meow Mix';
+};
+
+console.log(food); // Reference Error
+</code></pre>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="arrow-functions">Arrow Functions</h2>
+
+<p>一些时候，我们在函数嵌套中需要访问上下文中的 <code>this</code>。比如下面的例子：</p>
+
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.prefixName = function (arr) {
+  return arr.map(function (character) {
+  return this.name + character; // Cannot read property 'name' of undefined
+  });
+};
+</code></pre>
+
+<p>一种通用的方式是把上下文中的 <code>this</code> 保存在一个变量里：</p>
+
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.prefixName = function (arr) {
+  var that = this; // Store the context of this
+  return arr.map(function (character) {
+  return that.name + character;
+  });
+};
+</code></pre>
+
+<p>我们也可以把 <code>this</code> 通过属性传进去：</p>
+
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.prefixName = function (arr) {
+  return arr.map(function (character) {
+  return this.name + character;
+  }, this);
+};
+</code></pre>
+
+<p>还可以直接使用 <code>bind</code>：</p>
+
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.prefixName = function (arr) {
+  return arr.map(function (character) {
+  return this.name + character;
+  }.bind(this));
+};
+</code></pre>
+
+<p>使用 <strong>箭头函数</strong>，<code>this</code> 的值不用我们再做如上几段代码的特殊处理，直接使用即可。
+上面的代码可以重写为下面这样：</p>
+
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.prefixName = function (arr) {
+  return arr.map(character =&gt; this.name + character);
+};
+</code></pre>
+
+<blockquote>
+<p><strong>最佳实践</strong>：使用箭头函数，再也不用考虑 <code>this</code> 的问题了。</p>
+</blockquote>
+
+<p>当我们编写只返回一个表达式值的简单函数时，也可以使用箭头函数，如下：</p>
+
+<pre><code class="language-javascript">var squares = arr.map(function (x) { return x * x }); // Function Expression
+</code></pre>
+
+<pre><code class="language-javascript">const arr = [1, 2, 3, 4, 5];
+const squares = arr.map(x =&gt; x * x); // Arrow Function for terser implementation
+</code></pre>
+
+<blockquote>
+<p><strong>最佳实践</strong>：尽可能地多使用 <strong>箭头函数</strong>。</p>
+</blockquote>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="strings">Strings</h2>
+
+<p>在ES6中，标准库也被同样增强了，像字符串对象就新增了 <code>.includes()</code> 和 <code>.repeat()</code> 方法。</p>
+
+<h3 id="includes">.includes( )</h3>
+
+<pre><code class="language-javascript">var string = 'food';
+var substring = 'foo';
+
+console.log(string.indexOf(substring) &gt; -1);
+</code></pre>
+
+<p>现在，我们可以使用 <code>.inclues()</code> 方法，替代以往判断内容 <code>&gt; -1</code> 的方式。
+<code>.includes()</code> 方法会极简地返回一个布尔值结果。</p>
+
+<pre><code class="language-javascript">const string = 'food';
+const substring = 'foo';
+
+console.log(string.includes(substring)); // true
+</code></pre>
+
+<h3 id="repeat">.repeat( )</h3>
+
+<pre><code class="language-javascript">function repeat(string, count) {
+  var strings = [];
+  while(strings.length &lt; count) {
+  strings.push(string);
+  }
+  return strings.join('');
+}
+</code></pre>
+
+<p>在ES6中，我们可以使用一个极简的方法来实现重复字符：</p>
+
+<pre><code class="language-javascript">// String.repeat(numberOfRepetitions)
+'meow'.repeat(3); // 'meowmeowmeow'
+</code></pre>
+
+<h3 id="template-literals">Template Literals</h3>
+
+<p>使用 <strong>字符串模板字面量</strong>，我可以在字符串中直接使用特殊字符，而不用转义。</p>
+
+<pre><code class="language-javascript">var text = &quot;This string contains \&quot;double quotes\&quot; which are escaped.&quot;;
+</code></pre>
+
+<pre><code class="language-javascript">let text = `This string contains &quot;double quotes&quot; which don't need to be escaped anymore.`;
+</code></pre>
+
+<p><strong>字符串模板字面量</strong> 还支持直接插入变量，可以实现字符串与变量的直接连接输出。</p>
+
+<pre><code class="language-javascript">var name = 'Tiger';
+var age = 13;
+
+console.log('My cat is named ' + name + ' and is ' + age + ' years old.');
+</code></pre>
+
+<p>更简单的版本：</p>
+
+<pre><code class="language-javascript">const name = 'Tiger';
+const age = 13;
+
+console.log(`My cat is named ${name} and is ${age} years old.`);
+</code></pre>
+
+<p>ES5中，我们要这样生成多行文本：</p>
+
+<pre><code class="language-javascript">var text = (
+  'cat\n' +
+  'dog\n' +
+  'nickelodeon'
+);
+</code></pre>
+
+<p>或者：</p>
+
+<pre><code class="language-javascript">var text = [
+  'cat',
+  'dog',
+  'nickelodeon'
+].join('\n');
+</code></pre>
+
+<p><strong>字符串模板字面量</strong> 让我们不必特别关注多行字符串中的换行转义符号，直接换行即可：</p>
+
+<pre><code class="language-javascript">let text = ( `cat
+dog
+nickelodeon`
+);
+</code></pre>
+
+<p><strong>字符串模板字面量</strong> 内部可以使用表达式，像这样：</p>
+
+<pre><code class="language-javascript">let today = new Date();
+let text = `The time and date is ${today.toLocaleString()}`;
+</code></pre>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="destructuring">Destructuring</h2>
+
+<p>解构让我们可以使用非常便捷的语法，直接将数组或者对象中的值直接分别导出到多个变量中，</p>
+
+<h3 id="destructuring-arrays">Destructuring Arrays</h3>
+
+<p><strong>解构数组</strong></p>
+
+<pre><code class="language-javascript">var arr = [1, 2, 3, 4];
+var a = arr[0];
+var b = arr[1];
+var c = arr[2];
+var d = arr[3];
+</code></pre>
+
+<pre><code class="language-javascript">let [a, b, c, d] = [1, 2, 3, 4];
+
+console.log(a); // 1
+console.log(b); // 2
+</code></pre>
+
+<h3 id="destructuring-objects">Destructuring Objects</h3>
+
+<p><strong>解构对象</strong></p>
+
+<pre><code class="language-javascript">var luke = { occupation: 'jedi', father: 'anakin' };
+var occupation = luke.occupation; // 'jedi'
+var father = luke.father; // 'anakin'
+</code></pre>
+
+<pre><code class="language-javascript">let luke = { occupation: 'jedi', father: 'anakin' };
+let {occupation, father} = luke;
+
+console.log(occupation); // 'jedi'
+console.log(father); // 'anakin'
+</code></pre>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="modules">Modules</h2>
+
+<p>ES6之前，浏览器端的模块化代码，我们使用像<a href="http://browserify.org/">Browserify</a>这样的库，
+在 <strong>Node.js</strong> 中，我们则使用 <a href="https://nodejs.org/api/modules.html#modules_module_require_id">require</a>。
+在ES6中，我们现在可以直接使用AMD 和 CommonJS这些模块了。</p>
+
+<h3 id="exporting-in-commonjs">Exporting in CommonJS</h3>
+
+<pre><code class="language-javascript">module.exports = 1;
+module.exports = { foo: 'bar' };
+module.exports = ['foo', 'bar'];
+module.exports = function bar () {};
+</code></pre>
+
+<h3 id="exporting-in-es6">Exporting in ES6</h3>
+
+<p>在ES6中，提供了多种设置模块出口的方式，比如我们要导出一个变量，那么使用 <strong>变量名</strong> ：</p>
+
+<pre><code class="language-javascript">export let name = 'David';
+export let age = 25;​​
+</code></pre>
+
+<p>还可以为对象 <strong>导出一个列表</strong>：</p>
+
+<pre><code class="language-javascript">function sumTwo(a, b) {
+  return a + b;
+}
+
+function sumThree(a, b, c) {
+  return a + b + c;
+}
+
+export { sumTwo, sumThree };
+</code></pre>
+
+<p>我们也可以使用简单的一个 <code>export</code> 关键字来导出一个结果值：</p>
+
+<pre><code class="language-javascript">export function sumTwo(a, b) {
+  return a + b;
+}
+
+export function sumThree(a, b, c) {
+  return a + b + c;
+}
+</code></pre>
+
+<p>最后，我们可以 <strong>导出一个默认出口</strong>：</p>
+
+<pre><code class="language-javascript">function sumTwo(a, b) {
+  return a + b;
+}
+
+function sumThree(a, b, c) {
+  return a + b + c;
+}
+
+let api = {
+  sumTwo,
+  sumThree
+};
+
+export default api;
+</code></pre>
+
+<blockquote>
+<p><strong>最佳实践</strong>：总是在模块的 <strong>最后</strong> 使用 <code>export default</code> 方法。
+它让模块的出口更清晰明了，节省了阅读整个模块来寻找出口的时间。
+更多的是，在大量CommonJS模块中，通用的习惯是设置一个出口值或者出口对象。
+最受这个规则，可以让我们的代码更易读，且更方便的联合使用CommonJS和ES6模块。</p>
+</blockquote>
+
+<h3 id="importing-in-es6">Importing in ES6</h3>
+
+<p>ES6提供了好几种模块的导入方式。我们可以单独引入一个文件：</p>
+
+<pre><code class="language-javascript">import 'underscore';
+</code></pre>
+
+<blockquote>
+<p>这里需要注意的是， <strong>整个文件的引入方式会执行该文件内的最上层代码</strong>。</p>
+</blockquote>
+
+<p>就像Python一样，我们还可以命名引用：</p>
+
+<pre><code class="language-javascript">import { sumTwo, sumThree } from 'math/addition';
+</code></pre>
+
+<p>我们甚至可以使用 <code>as</code> 给这些模块重命名：</p>
+
+<pre><code class="language-javascript">import {
+  sumTwo as addTwoNumbers,
+  sumThree as sumThreeNumbers
+} from 'math/addition';
+</code></pre>
+
+<p>另外，我们能 <strong>引入所有的东西（原文：import all the things）</strong> （也称为命名空间引入）</p>
+
+<pre><code class="language-javascript">import * as util from 'math/addition';
+</code></pre>
+
+<p>最后，我们能可以从一个模块的众多值中引入一个列表：</p>
+
+<pre><code class="language-javascript">import * as additionUtil from 'math/addtion';
+const { sumTwo, sumThree } = additionUtil;
+</code></pre>
+
+<p>像这样引用默认对象：</p>
+
+<pre><code class="language-javascript">import api from 'math/addition';
+// Same as: import { default as api } from 'math/addition';
+</code></pre>
+
+<p>我们建议一个模块导出的值应该越简洁越好，不过有时候有必要的话命名引用和默认引用可以混着用。如果一个模块是这样导出的：</p>
+
+<pre><code class="language-javascript">// foos.js
+export { foo as default, foo1, foo2 };
+</code></pre>
+
+<p>那我们可以如此导入这个模块的值：</p>
+
+<pre><code class="language-javaqscript">import foo, { foo1, foo2 } from 'foos';
+</code></pre>
+
+<p>我们还可以导入commonjs模块，例如React：</p>
+
+<pre><code class="language-javascript">import React from 'react';
+const { Component, PropTypes } = React;
+</code></pre>
+
+<p>更简化版本：</p>
+
+<pre><code class="language-javascript">import React, { Component, PropTypes } from 'react';
+</code></pre>
+
+<blockquote>
+<p><strong>注意</strong>：被导出的值是被 <strong>绑定的（原文：bingdings）</strong>，而不是引用。
+所以，改变一个模块中的值的话，会影响其他引用本模块的代码，一定要避免此种改动发生。</p>
+</blockquote>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>在ES5中，许多种方法来处理函数的 <strong>参数默认值（default values）</strong>，<strong>参数数量（indefinite arguments）</strong>，<strong>参数命名（named parameters）</strong>。
+ES6中，我们可以使用非常简洁的语法来处理上面提到的集中情况。</p>
+
+<h3 id="default-parameters">Default Parameters</h3>
+
+<pre><code class="language-javascript">function addTwoNumbers(x, y) {
+  x = x || 0;
+  y = y || 0;
+  return x + y;
+}
+</code></pre>
+
+<p>ES6中，我们可以简单为函数参数启用默认值：</p>
+
+<pre><code class="language-javascript">function addTwoNumbers(x=0, y=0) {
+  return x + y;
+}
+</code></pre>
+
+<pre><code class="language-javascript">addTwoNumbers(2, 4); // 6
+addTwoNumbers(2); // 2
+addTwoNumbers(); // 0
+</code></pre>
+
+<h3 id="rest-parameters">Rest Parameters</h3>
+
+<p>ES5中，遇到参数数量不确定时，我们只能如此处理：</p>
+
+<pre><code class="language-javascript">function logArguments() {
+  for (var i=0; i &lt; arguments.length; i++) {
+  console.log(arguments[i]);
+  }
+}
+</code></pre>
+
+<p>使用 <strong>rest</strong> 操作符，我们可以给函数传入一个不确定数量的参数列表：</p>
+
+<pre><code class="language-javascript">function logArguments(...args) {
+  for (let arg of args) {
+  console.log(arg);
+  }
+}
+</code></pre>
+
+<h3 id="named-parameters">Named Parameters</h3>
+
+<p>命名函数
+ES5中，当我们要处理多个 <strong>命名参数</strong> 时，通常会传入一个 <strong>选项对象</strong> 的方式，这种方式被jQuery采用。</p>
+
+<pre><code class="language-javascript">function initializeCanvas(options) {
+  var height = options.height || 600;
+  var width = options.width || 400;
+  var lineStroke = options.lineStroke || 'black';
+}
+</code></pre>
+
+<p>我们可以利用上面提到的新特性 <strong>解构</strong> ，来完成与上面同样功能的函数：
+We can achieve the same functionality using destructuring as a formal parameter
+to a function:</p>
+
+<pre><code class="language-javascript">function initializeCanvas(
+  { height=600, width=400, lineStroke='black'}) {
+  // ...
+  }
+  // Use variables height, width, lineStroke here
+</code></pre>
+
+<p>如果我们需要把这个参数变为可选的，那么只要把该参数解构为一个空对象就好了：</p>
+
+<pre><code class="language-javascript">function initializeCanvas(
+  { height=600, width=400, lineStroke='black'} = {}) {
+  // ...
+  }
+</code></pre>
+
+<h3 id="spread-operator">Spread Operator</h3>
+
+<p>我们可以利用展开操作符（Spread Operator）来把一组数组的值，当作参数传入：</p>
+
+<pre><code class="language-javascript">Math.max(...[-1, 100, 9001, -32]); // 9001
+</code></pre>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="classes">Classes</h2>
+
+<p>在ES6以前，我们实现一个类的功能的话，需要首先创建一个构造函数，然后扩展这个函数的原型方法，就像这样：</p>
+
+<pre><code class="language-javascript">function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+Person.prototype.incrementAge = function () {
+  return this.age += 1;
+};
+</code></pre>
+
+<p>继承父类的子类需要这样：</p>
+
+<pre><code class="language-javascript">function Personal(name, age, gender, occupation, hobby) {
+  Person.call(this, name, age, gender);
+  this.occupation = occupation;
+  this.hobby = hobby;
+}
+
+Personal.prototype = Object.create(Person.prototype);
+Personal.prototype.constructor = Personal;
+Personal.prototype.incrementAge = function () {
+  return Person.prototype.incrementAge.call(this) += 20;
+};
+</code></pre>
+
+<p>ES6提供了一些语法糖来实现上面的功能，我们可以直接创建一个类：</p>
+
+<pre><code class="language-javascript">class Person {
+  constructor(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+  }
+
+  incrementAge() {
+  this.age += 1;
+  }
+}
+</code></pre>
+
+<p>继承父类的子类只要简单的使用 <code>extends</code> 关键字就可以了：</p>
+
+<pre><code class="language-javascript">class Personal extends Person {
+  constructor(name, age, gender, occupation, hobby) {
+  super(name, age, gender);
+  this.occupation = occupation;
+  this.hobby = hobby;
+  }
+
+  incrementAge() {
+  super.incrementAge();
+  this.age += 20;
+  console.log(this.age);
+  }
+}
+</code></pre>
+
+<blockquote>
+<p><strong>最佳实践</strong>：ES6新的类语法把我们从晦涩难懂的实现和原型操作中解救出来，这是个非常适合初学者的功能，而且能让我们写出更干净整洁的代码。</p>
+</blockquote>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="symbols">Symbols</h2>
+
+<p>符号（Symbols）在ES6版本之前就已经存在了，但现在我们拥有一个公共的接口来直接使用它们。
+Symbols对象是一旦创建就不可以被更改的（immutable）而且能被用做hash数据类型中的键。</p>
+
+<h3 id="symbol">Symbol( )</h3>
+
+<p>调用 <code>Symbol()</code> 或者 <code>Symbol(描述文本)</code> 会创建一个唯一的、在全局中不可以访问的符号对象。
+一个 <code>Symbol()</code> 的应用场景是：在自己的项目中使用第三方代码库，且你需要给他们的对象或者命名空间打补丁代码，又不想改动或升级第三方原有代码的时候。
+举个例子，如果你想给 <code>React.Component</code> 这个类添加一个 <code>refreshComponent</code> 方法，但又确定不了这个方法会不会在下个版本中加入，你可以这么做：</p>
+
+<pre><code class="language-javascript">const refreshComponent = Symbol();
+
+React.Component.prototype[refreshComponent] = () =&gt; {
+  // do something
+}
+</code></pre>
+
+<h3 id="symbol-for-key">Symbol.for(key)</h3>
+
+<p>使用 <code>Symbol.for(key)</code> 也是会创建一个不可改变的Symbol对象，但区别于上面的创建方法，这个对象是在全局中可以被访问到的。
+调用两次 <code>Symbol.for(key)</code> 会返回相同的Symbol实例。</p>
+
+<p><strong>提示</strong>：这并不同于 <code>Symbol(description)</code>。</p>
+
+<pre><code class="language-javascript">Symbol('foo') === Symbol('foo') // false
+Symbol.for('foo') === Symbol('foo') // false
+Symbol.for('foo') === Symbol.for('foo') // true
+</code></pre>
+
+<p>一个Symbols常用的使用场景，是需要使用特别 <code>Symbol.for(key)</code> 方法来实现代码间的协作。
+这能让你在你的代码中，查找包含已知的接口的第三方代码中Symbol成员。（译者：这句话好难翻。。。原文：This can be
+achieved by having your code look for a Symbol member on object arguments from third parties that contain some known interface. ）举个例子：</p>
+
+<pre><code class="language-javascript">function reader(obj) {
+  const specialRead = Symbol.for('specialRead');
+  if (obj[specialRead]) {
+  const reader = obj[specialRead]();
+  // do something with reader
+  } else {
+  throw new TypeError('object cannot be read');
+  }
+}
+</code></pre>
+
+<p>之后在另一个库中：</p>
+
+<pre><code class="language-javascript">const specialRead = Symbol.for('specialRead');
+
+class SomeReadableType {
+  [specialRead]() {
+  const reader = createSomeReaderFrom(this);
+  return reader;
+  }
+}
+</code></pre>
+
+<blockquote>
+<p><strong>注意</strong>：<code>Symbol.iterable</code> 在ES6中像其他可枚举的对象，如数组，字符串，generators一样，当这个方法被调用时会激活一个枚举器并返回一个对象。</p>
+</blockquote>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="maps">Maps</h2>
+
+<p><strong>Maps</strong> 是一个Javascript中很重要（迫切需要）的数据结构。
+在ES6之前，我们创建一个 <strong>hash</strong> 通常是使用一个对象：</p>
+
+<pre><code class="language-javascript">var map = new Object();
+map[key1] = 'value1';
+map[key2] = 'value2';
+</code></pre>
+
+<p>但是，这样的代码无法避免函数被特别的属性名覆盖的意外情况：</p>
+
+<pre><code class="language-javascript">&gt; getOwnProperty({ hasOwnProperty: 'Hah, overwritten'}, 'Pwned');
+&gt; TypeError: Property 'hasOwnProperty' is not a function
+</code></pre>
+
+<p><strong>Maps</strong> 让我们使用 <code>set</code>，<code>get</code> 和 <code>search</code> 操作数据。</p>
+
+<pre><code class="language-javascript">let map = new Map();
+&gt; map.set('name', 'david');
+&gt; map.get('name'); // david
+&gt; map.has('name'); // true
+</code></pre>
+
+<p>Maps最强大的地方在于我们不必只能使用字符串来做key了，现在可以使用任何类型来当作key，而且key不会被强制类型转换为字符串。</p>
+
+<pre><code class="language-javascript">let map = new Map([
+  ['name', 'david'],
+  [true, 'false'],
+  [1, 'one'],
+  [{}, 'object'],
+  [function () {}, 'function']
+]);
+
+for (let key of map.keys()) {
+  console.log(typeof key);
+  // &gt; string, boolean, number, object, function
+}
+</code></pre>
+
+<blockquote>
+<p><strong>提示</strong>：当使用 <code>map.get()</code> 判断值是否相等时，非基础类型比如一个函数或者对象，将不会正常工作。
+有鉴于此，还是建议使用字符串，布尔和数字类型的数据类型。</p>
+</blockquote>
+
+<p>我们还可以使用 <code>.entries()</code> 方法来遍历整个map对象：</p>
+
+<pre><code class="language-javascript">for (let [key, value] of map.entries()) {
+  console.log(key, value);
+}
+</code></pre>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="weakmaps">WeakMaps</h2>
+
+<p>在ES5之前的版本，我们为了存储私有数据，有好几种方法。像使用这种下划线命名约定：</p>
+
+<pre><code class="language-javascript">class Person {
+  constructor(age) {
+  this._age = age;
+  }
+
+  _incrementAge() {
+  this._age += 1;
+  }
+}
+</code></pre>
+
+<p>在一个开源项目中，命名规则很难维持得一直很好，这样经常会造成一些困扰。
+此时，我们可以选择使用WeakMaps来替代Maps来存储我们的数据：</p>
+
+<pre><code class="language-javascript">let _age = new WeakMap();
+class Person {
+  constructor(age) {
+  _age.set(this, age);
+  }
+
+  incrementAge() {
+  let age = _age.get(this) + 1;
+  _age.set(this, age);
+  if (age &gt; 50) {
+  console.log('Midlife crisis');
+  }
+  }
+}
+</code></pre>
+
+<p>使用WeakMaps来保存我们私有数据的理由之一是不会暴露出属性名，就像下面的例子中的 <code>Reflect.ownKeys()</code>：</p>
+
+<pre><code class="language-javascript">&gt; const person = new Person(50);
+&gt; person.incrementAge(); // 'Midlife crisis'
+&gt; Reflect.ownKeys(person); // []
+</code></pre>
+
+<p>一个使用WeakMaps存储数据更实际的例子，就是有关于一个DOM元素和对该DOM元素（有污染）地操作：</p>
+
+<pre><code class="language-javascript">let map = new WeakMap();
+let el = document.getElementById('someElement');
+
+// Store a weak reference to the element with a key
+map.set(el, 'reference');
+
+// Access the value of the element
+let value = map.get(el); // 'reference'
+
+// Remove the reference
+el.parentNode.removeChild(el);
+el = null;
+
+value = map.get(el); // undefined
+</code></pre>
+
+<p>上面的例子中，一个对象被垃圾回收期给销毁了，WeakMaps会自动的把自己内部所对应的键值对数据同时销毁。</p>
+
+<blockquote>
+<p><strong>提示</strong>：结合这个例子，再考虑下jQuery是如何实现缓存带有引用的DOM元素这个功能的，使用了WeakMaps的话，当被缓存的DOM元素被移除的时，jQuery可以自动释放相应元素的内存。
+通常情况下，在涉及DOM元素存储和缓存的情况下，使用WeakMaps是非常适合的。</p>
+</blockquote>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="promises">Promises</h2>
+
+<p>Promises让我们让我们多缩进难看的代码（回调地狱）：</p>
+
+<pre><code class="language-javascript">func1(function (value1) {
+  func2(value1, function (value2) {
+  func3(value2, function (value3) {
+  func4(value3, function (value4) {
+  func5(value4, function (value5) {
+  // Do something with value 5
+  });
+  });
+  });
+  });
+});
+</code></pre>
+
+<p>写成这样：</p>
+
+<pre><code class="language-javascript">func1(value1)
+  .then(func2)
+  .then(func3)
+  .then(func4)
+  .then(func5, value5 =&gt; {
+  // Do something with value 5
+  });
+</code></pre>
+
+<p>在ES6之前，我们使用<a href="https://github.com/petkaantonov/bluebird">bluebird</a> 或者
+<a href="https://github.com/kriskowal/q">Q</a>。现在我们有了原生版本的 Promises：</p>
+
+<pre><code class="language-javascript">new Promise((resolve, reject) =&gt;
+  reject(new Error('Failed to fulfill Promise')))
+  .catch(reason =&gt; console.log(reason));
+</code></pre>
+
+<p>这里有两个处理函数，<strong>resolve</strong>（当Promise执行成功完毕时调用的回调函数） 和 <strong>reject</strong> （当Promise执行不接受时调用的回调函数）</p>
+
+<blockquote>
+<p><strong>Promises的好处</strong>：大量嵌套错误回调函数会使代码变得难以阅读理解。
+使用了Promises，我们可以让我们代码变得更易读，组织起来更合理。
+此外，Promise处理后的值，无论是解决还是拒绝的结果值，都是不可改变的。</p>
+</blockquote>
+
+<p>下面是一些使用Promises的实际例子：</p>
+
+<pre><code class="language-javascript">var fetchJSON = function(url) {
+  return new Promise((resolve, reject) =&gt; {
+  $.getJSON(url)
+  .done((json) =&gt; resolve(json))
+  .fail((xhr, status, err) =&gt; reject(status + err.message));
+  });
+};
+</code></pre>
+
+<p>我们还可以使用 <code>Promise.all()</code> 来异步的 <strong>并行</strong> 处理一个数组的数据。</p>
+
+<pre><code class="language-javascript">var urls = [
+  'http://www.api.com/items/1234',
+  'http://www.api.com/items/4567'
+];
+
+var urlPromises = urls.map(fetchJSON);
+
+Promise.all(urlPromises)
+  .then(function (results) {
+  results.forEach(function (data) {
+  });
+  })
+  .catch(function (err) {
+  console.log('Failed: ', err);
+  });
+</code></pre>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="generators">Generators</h2>
+
+<p>就像<a href="https://github.com/DrkSephy/es6-cheatsheet#promises">Promises</a>如何让我们避免<a href="http://callbackhell.com/">回调地狱</a>一样，Generators也可以使我们的代码扁平化，同时给予我们开发者像开发同步代码一样的感觉来写异步代码。Generators本质上是一种支持的函数，随后返回表达式的值。
+Generators实际上是支持<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield">暂停运行</a>，随后根据上一步的返回值再继续运行的一种函数。</p>
+
+<p>下面代码是一个使用generators函数的简单例子：</p>
+
+<pre><code class="language-javascript">function* sillyGenerator() {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+}
+
+var generator = sillyGenerator();
+&gt; console.log(generator.next()); // { value: 1, done: false }
+&gt; console.log(generator.next()); // { value: 2, done: false }
+&gt; console.log(generator.next()); // { value: 3, done: false }
+&gt; console.log(generator.next()); // { value: 4, done: false }
+</code></pre>
+
+<p>就像上面的例子，当<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/next">next</a>运行时，它会把我们的generator向前“推动”，同时执行新的表达式。
+我们能利用Generators来像书写同步代码一样书写异步代码。</p>
+
+<pre><code class="language-javascript">// Hiding asynchronousity with Generators
+
+function request(url) {
+  getJSON(url, function(response) {
+  generator.next(response);
+  });
+}
+</code></pre>
+
+<p>这里我们写个generator函数将要返回我们的数据：</p>
+
+<pre><code class="language-javascript">function* getData() {
+  var entry1 = yield request('http://some_api/item1');
+  var data1 = JSON.parse(entry1);
+  var entry2 = yield request('http://some_api/item2');
+  var data2 = JSON.parse(entry2);
+}
+</code></pre>
+
+<p>借助于 <code>yield</code>，我们可以保证 <code>entry1</code> 确实拿到数据并转换后再赋值给 <code>data1</code>。</p>
+
+<p>当我们使用generators来像书写同步代码一样书写我们的异步代码逻辑时，没有一种清晰简单的方式来处理期间可能会产生的错误或者异常。在这种情况下，我们可以在我们的generator中引入Promises来处理，就像下面这样：</p>
+
+<pre><code class="language-javascript">function request(url) {
+  return new Promise((resolve, reject) =&gt; {
+  getJSON(url, resolve);
+  });
+}
+</code></pre>
+
+<p>我们再写一个函数，其中使用 <code>next</code> 来步进我们的generator的同事，再利用我们上面的 <code>request</code> 方法来产生（yield）一个Promise。</p>
+
+<pre><code class="language-javascript">function iterateGenerator(gen) {
+  var generator = gen();
+  var ret;
+  (function iterate(val) {
+  ret = generator.next();
+  if(!ret.done) {
+  ret.value.then(iterate);
+  }
+  })();
+}
+</code></pre>
+
+<p>在Generator中引入了Promises后，我们就可以通过Promise的 <code>.catch</code> 和 <code>reject</code> 来捕捉和处理错误了。
+使用了我们新版的Generator后，新版的调用就像老版本一样简单可读（译者注：有微调）：</p>
+
+<pre><code class="language-javascript">iterateGenerator(function* getData() {
+  var entry1 = yield request('http://some_api/item1');
+  var data1 = JSON.parse(entry1);
+  var entry2 = yield request('http://some_api/item2');
+  var data2 = JSON.parse(entry2);
+});
+</code></pre>
+
+<p>在使用Generator后，我们可以重用我们的老版本代码实现，以此展示了Generator的力量。
+当使用Generators和Promises后，我们可以像书写同步代码一样书写异步代码的同时优雅地解决了错误处理问题。
+此后，我们实际上可以开始利用更简单的一种方式了，它就是<a href="https://github.com/DrkSephy/es6-cheatsheet#async-await">async-await</a>。</p>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+<h2 id="async-await">Async Await</h2>
+
+<p><code>async await</code> 随着ES2016版本就要发布了，它给我们提供了一种更轻松的、更简单的可以替代的实现上面 Generators 配合 Promises 组合代码的一种编码方式，让我们来看看例子：</p>
+
+<pre><code class="language-javascript">var request = require('request');
+
+function getJSON(url) {
+  return new Promise(function(resolve, reject) {
+  request(url, function(error, response, body) {
+  resolve(body);
+  });
+  });
+}
+
+async function main() {
+  var data = await getJSON();
+  console.log(data); // NOT undefined!
+}
+
+main();
+</code></pre>
+
+<p>它们看上去和Generators很像。我（作者）强烈推荐使用 <code>async await</code> 来替代Generators + Promises的写法。
+<a href="http://masnun.com/2015/11/11/using-es7-asyncawait-today-with-babel.html">这里</a>是个很好的学习资源，让我们学习和使用这项ES7中的新功能。</p>
+
+<p><sup><a href="#Table-of-Contents">(回到目录)</a></sup></p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Hellohy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2016-12-04</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/es6/">es6</a>
+          
+          <a href="/tags/js/">js</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/css-fake-fixed/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">用css模拟有滚动条的容器内部元素fixed效果</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="hitcloudy@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://hellohy.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Hellohy</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-104668275-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Js on </title>
+    <title>Js on Even - A super concise theme for Hugo</title>
     <link>https://hellohy.github.io/tags/js/</link>
-    <description>Recent content in Js on </description>
+    <description>Recent content in Js on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 16 Aug 2017 14:46:58 +0000</lastBuildDate>
@@ -13,25 +13,20 @@
     
     <item>
       <title>js深浅拷贝</title>
-      <link>https://hellohy.github.io/posts/js-copy/</link>
+      <link>https://hellohy.github.io/post/js-clone/</link>
       <pubDate>Wed, 16 Aug 2017 14:46:58 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/js-copy/</guid>
-      <description>实现js深浅拷贝的几种方法
-浅拷贝 只复制对象的第一层键值对。
-// 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得事先定义好，不然就不能改变实参了。 // 这是由于JavaScript对于对象的传递则是按共享传递的,详见文末题外话 if( !target || typeof target !== &#39;object&#39;){ return; } // 这边最好区别一下对象和数组的复制 for(var key in source){ if(source.hasOwnProperty(key)){ target[key] = source[key]; } } } //测试例子 var arr = [1,2,3]; var arr2 = []; shadowCopy(arr2, arr); console.log(arr2); //[1,2,3] var today = { weather: &#39;Sunny&#39;, date: { week: &#39;Wed&#39; } } var tomorrow = {}; shadowCopy(tomorrow, today); console.</description>
+      <guid>https://hellohy.github.io/post/js-clone/</guid>
+      <description>实现js深浅拷贝的几种方法 浅拷贝 只复制对象的第一层键值对。 // 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得</description>
     </item>
     
     <item>
       <title>es6-cheatsheet</title>
-      <link>https://hellohy.github.io/posts/learn-es6/</link>
+      <link>https://hellohy.github.io/post/learn-es6/</link>
       <pubDate>Sun, 04 Dec 2016 23:05:33 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/learn-es6/</guid>
-      <description>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。
-Table of Contents  var 与 let / const 声明 代码执行块替换立即执行函数 箭头函数 字符串 解构 模块 参数 类 Symbols Maps WeakMaps Promises Generators Async Await  var versus let / const  除了 var 以外，我们现在多了两个新的标识符来声明变量的存储，它们就是 let 和 const。 不同于 var ，let 和 const 语句不会造成声明提升。
- 一个 var 的例子:
-var snack = &#39;Meow Mix&#39;; function getFood(food) { if (food) { var snack = &#39;Friskies&#39;; return snack; } return snack; } getFood(false); // undefined  让我们再观察下面语句中，使用 let 替换了 var 后的表现：</description>
+      <guid>https://hellohy.github.io/post/learn-es6/</guid>
+      <description>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块</description>
     </item>
     
   </channel>

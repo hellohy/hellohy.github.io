@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
+    <title>Tags on Even - A super concise theme for Hugo</title>
     <link>https://hellohy.github.io/tags/</link>
-    <description>Recent content in Tags on </description>
+    <description>Recent content in Tags on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 16 Aug 2017 14:46:58 +0000</lastBuildDate>
@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Copy</title>
-      <link>https://hellohy.github.io/tags/copy/</link>
+      <title>Clone</title>
+      <link>https://hellohy.github.io/tags/clone/</link>
       <pubDate>Wed, 16 Aug 2017 14:46:58 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/tags/copy/</guid>
+      <guid>https://hellohy.github.io/tags/clone/</guid>
       <description></description>
     </item>
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
+    <title>Even - A super concise theme for Hugo</title>
     <link>https://hellohy.github.io/</link>
-    <description>Recent content on </description>
+    <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 22 Mar 2018 02:06:29 +0000</lastBuildDate>
@@ -13,34 +13,11 @@
     
     <item>
       <title>javascript实现Tarjan算法寻找有向图的强连通分量</title>
-      <link>https://hellohy.github.io/posts/tarjan/</link>
+      <link>https://hellohy.github.io/post/tarjan/</link>
       <pubDate>Thu, 22 Mar 2018 02:06:29 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/tarjan/</guid>
-      <description>javascript实现Tarjan算法寻找有向图的强连通分量
-本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些图的定义，图的邻接表和邻接矩阵表示法，图的两种遍历方法，在解决问题的时候如何选用正确的数据结构来表示图
-目录  有关图的一些定义 图的表示 图的遍历 Tarjan算法  有关图的一些定义 图由边的集合和顶点的集合组成
-强连通：在有向图中，如果两个顶点之间有路径，则称该两点是强连通的
-强连通图：在有向图中，任意两个顶点都是强连通的
-强连通分量：有向图的极大连通子图，称为强连通分量
-图的表示 对于图G(V,E)，有以下定义 稀疏图：边的条数|E|远远小于$$|V|^2$$ 稠密图：边的条数|E|接近$$|V|^2$$
-假设对于图G, 节点和边如下图:
-转化为计算机语言，一般有两种表示方式，邻接链表和邻接矩阵。
-邻接链表 由包含|V|条链表的的数组Adj构成 结构如下： 0 -&amp;gt; [1, 2] 1 -&amp;gt; [2] 2 -&amp;gt; []
-空间复杂度o(V+E)
-优点：鲁棒性高，可以通过简单的修改来表示一些图的其他变种
-缺点：无法快速判断两个节点u、v之间是否存在一条边，只能通过链表Adj[u]来搜索v节点
-ps:链表和数组很相似，在javascript中，数组是基于对象实现的，与其他语言(java、c++)的数组相比是非常低效的。在很多编程语言中，数组的长度是固定的，往数组中增加或者删除元素很麻烦，需要移动其他元素，而在javascript中不存在这个问题，直接用split()方法就可以了。所以，我们也可以直接用数组来实现邻接链表，但是，当你在实际应用中遇到数组很慢的时候，可以考虑实现下链表结构。
-邻接矩阵 由一个|V| x |V| 的矩阵A构成 结构如下：
-[ [0, 1, 1], [0, 0, 1], [0, 0, 0] ]  空间复杂度：o($$V^2$$)
-优点：简单，在图的规模不大的时候尤其好用，对于无向图，邻接矩阵是对称矩阵，因此只需要占用一半的空间
-缺点：存储空间消耗大，尤其在表示稀疏图的时候，浪费存储空间
-图的遍历 深度优先搜索DFS 原理：
-1.访问一个没有访问过的节点，将它标记为已访问
-2.再递归地去访问初始节点的邻接链表中其他没有访问到的节点
-示意图： 广度优先搜索BFS 原理：
-1.查找与当前节点相邻的未访问的节点，将其添加到已访问节点列表和队列中
-2.从图中取出下一个顶点v，添加到已访问的节点列表</description>
+      <guid>https://hellohy.github.io/post/tarjan/</guid>
+      <description>javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，</description>
     </item>
     
     <item>
@@ -54,63 +31,47 @@ ps:链表和数组很相似，在javascript中，数组是基于对象实现的�
     
     <item>
       <title>如何在react中封装echarts</title>
-      <link>https://hellohy.github.io/posts/react-echarts/</link>
+      <link>https://hellohy.github.io/post/react-echarts/</link>
       <pubDate>Mon, 18 Dec 2017 20:37:18 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/react-echarts/</guid>
-      <description>echarts一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析echarts-for-react源码介绍如何在react中封装使用echarts
-目录  为什么要封装 如何实现 总结 - - -  为什么要封装 旧的思维 习惯了在jquery开发模式下导入echarts、swiper、d3等需要操作到真实dom的第三方库，突然切换到React，会按照旧的思维模式使用，导致一些问题产生。先看看不封装的情况下在React中使用echarts:
-import React, { Component } from &#39;react&#39; import echarts from &#39;echarts&#39; export default class OldChart extends Component { componentDidMount () { // 基于准备好的dom，初始化echarts实例 var myChart = echarts.init(document.getElementById(&#39;old-chart&#39;)) // 绘制图表 myChart.setOption({ title: { text: &#39;ECharts 入门示例&#39; }, tooltip: {}, xAxis: { data: [&#39;衬衫&#39;, &#39;羊毛衫&#39;, &#39;雪纺衫&#39;, &#39;裤子&#39;, &#39;高跟鞋&#39;, &#39;袜子&#39;] }, yAxis: {}, series: [{ name: &#39;销量&#39;, type: &#39;bar&#39;, data: [5, 20, 36, 10, 10, 20] }] }) } render () { return ( &amp;lt;div id=&#39;old-chart&#39; style={{ width: 400, height: 400 }} /&amp;gt; ) } }  结果截图如下： 这种方式先通过document.</description>
+      <guid>https://hellohy.github.io/post/react-echarts/</guid>
+      <description>echarts一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析echarts-for-react源码介绍如何在rea</description>
     </item>
     
     <item>
       <title>egret入门介绍</title>
-      <link>https://hellohy.github.io/posts/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://hellohy.github.io/post/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Fri, 17 Nov 2017 11:19:21 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</guid>
-      <description>介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用
-Egret入门指南 简单介绍下egret~
-目录  容器 资源管理 纹理和位图 事件 Tween的使用  容器 DisplayObject |--- DisplayObjectContainer |--- Sprite |--- Stage 舞台 |--- Shape 矢量绘图 |--- Bitmap 位图 |--- TextField 文字  //stage是所有显示对象的&#39;根&#39;，stage下面是一个树状的显示列表 //显示对象容器，使用DisplayObjectContainer var container = new egret.DisplayObjectContainer(); //容器的缩放，旋转，位移将影响到它下面的子节点(即包含的显示对象) container.scaleX = 0.2; container.scaleY = 0.2; //用addChild方法把一个显示对象添加到显示列表 this.addChild(container); //位图是显示对象，纹理不是 var bitmap1 = new egret.Bitmap(RES.getRes(&amp;quot;egretIcon&amp;quot;)); container.addChild(bitmap1); //显示对象的位置和尺寸，相对于stage来说，也受到父容器的影响，也就是说每个显示对象容器，拥有自己的坐标系 bitmap1.x = bitmap1.y = 50;  注意这几个特性：
-DisplayObjectContainer.touchChildren   这个属性在实施性能优化的时候应该很有用。
- DisplayObjectContainer.removeChildren   移除所有显示对象，一个方便使用的快捷方法</description>
+      <guid>https://hellohy.github.io/post/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</guid>
+      <description>介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用 Egret入门指南 简单介绍下egret~ 目录 容器 资源管理 纹理和位</description>
     </item>
     
     <item>
       <title>js深浅拷贝</title>
-      <link>https://hellohy.github.io/posts/js-copy/</link>
+      <link>https://hellohy.github.io/post/js-clone/</link>
       <pubDate>Wed, 16 Aug 2017 14:46:58 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/js-copy/</guid>
-      <description>实现js深浅拷贝的几种方法
-浅拷贝 只复制对象的第一层键值对。
-// 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得事先定义好，不然就不能改变实参了。 // 这是由于JavaScript对于对象的传递则是按共享传递的,详见文末题外话 if( !target || typeof target !== &#39;object&#39;){ return; } // 这边最好区别一下对象和数组的复制 for(var key in source){ if(source.hasOwnProperty(key)){ target[key] = source[key]; } } } //测试例子 var arr = [1,2,3]; var arr2 = []; shadowCopy(arr2, arr); console.log(arr2); //[1,2,3] var today = { weather: &#39;Sunny&#39;, date: { week: &#39;Wed&#39; } } var tomorrow = {}; shadowCopy(tomorrow, today); console.</description>
+      <guid>https://hellohy.github.io/post/js-clone/</guid>
+      <description>实现js深浅拷贝的几种方法 浅拷贝 只复制对象的第一层键值对。 // 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得</description>
     </item>
     
     <item>
       <title>用css模拟有滚动条的容器内部元素fixed效果</title>
-      <link>https://hellohy.github.io/posts/css-fake-fixed/</link>
+      <link>https://hellohy.github.io/post/css-fake-fixed/</link>
       <pubDate>Mon, 14 Aug 2017 21:05:16 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/css-fake-fixed/</guid>
-      <description> 通常，大家都知道fixed属性是相对于屏幕视口（viewport)的位置来指定元素位置，元素的位置在屏幕滚动时不会改变。
-需求 在实际项目中，遇到一个问题，如下，有个自适应高度的区域div.container，且该区域在屏幕的位置不固定，它的内部右下角有个固定的按钮Button，当container滚动时，button要固定不动。
-很显然，看到这个需求，大家的第一反应就是用position: fixed，可是fixed是相对于整个viewport的位置，如果container位置是固定的，那么我们只要计算好Button相对于viewport的位置就可以了。但是这样不太友好，实际上Button是相对于container的，如果后期container有改动，Button的位置就要重新计算。而且，container的位置可能在布局用中会变化。为了灵活应对需求的变化，我们需要模拟Button相对于container的fixed效果
-解决方案 1.js （不推荐）js，无需多言，对Button设置position: absolute，right和bottom的位置由js计算
-2.css （推荐) 换个思路，让Button相对于一个窗口大小不会改变的容器absolute定位即可，那么，只需要在外面加层dom就可以了.这样子，l-container固定，position设置relative; container不变，尺寸与l-container一样，可以滚动; Button设置position: absolute。 详见demo: https://codepen.io/hellohy/pen/QMOyWR
-&amp;lt;div class=&amp;quot;l-container&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt; containercontainercontainercontainercontainercontainercontainercon &amp;lt;button&amp;gt;Hello!&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;  .l-container { position: relative; border: 1px solid yellow; width: 200px; } .container { border: 1px solid red; width: 200px; height: 200px; overflow: auto; } button{ border:1px solid #ccc; cursor:pointer; display:block; margin:auto; position:absolute; bottom:20px; right: 10px; }  </description>
+      <guid>https://hellohy.github.io/post/css-fake-fixed/</guid>
+      <description>通常，大家都知道fixed属性是相对于屏幕视口（viewport)的位置来指定元素位置，元素的位置在屏幕滚动时不会改变。 需求 在实际项目中，遇</description>
     </item>
     
     <item>
       <title>es6-cheatsheet</title>
-      <link>https://hellohy.github.io/posts/learn-es6/</link>
+      <link>https://hellohy.github.io/post/learn-es6/</link>
       <pubDate>Sun, 04 Dec 2016 23:05:33 +0000</pubDate>
       
-      <guid>https://hellohy.github.io/posts/learn-es6/</guid>
-      <description>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。
-Table of Contents  var 与 let / const 声明 代码执行块替换立即执行函数 箭头函数 字符串 解构 模块 参数 类 Symbols Maps WeakMaps Promises Generators Async Await  var versus let / const  除了 var 以外，我们现在多了两个新的标识符来声明变量的存储，它们就是 let 和 const。 不同于 var ，let 和 const 语句不会造成声明提升。
- 一个 var 的例子:
-var snack = &#39;Meow Mix&#39;; function getFood(food) { if (food) { var snack = &#39;Friskies&#39;; return snack; } return snack; } getFood(false); // undefined  让我们再观察下面语句中，使用 let 替换了 var 后的表现：</description>
+      <guid>https://hellohy.github.io/post/learn-es6/</guid>
+      <description>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块</description>
     </item>
     
   </channel>

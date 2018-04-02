@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clone on Even - A super concise theme for Hugo</title>
+    <link>https://hellohy.github.io/tags/clone/</link>
+    <description>Recent content in Clone on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 16 Aug 2017 14:46:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://hellohy.github.io/tags/clone/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>js深浅拷贝</title>
+      <link>https://hellohy.github.io/post/js-clone/</link>
+      <pubDate>Wed, 16 Aug 2017 14:46:58 +0000</pubDate>
+      
+      <guid>https://hellohy.github.io/post/js-clone/</guid>
+      <description>实现js深浅拷贝的几种方法 浅拷贝 只复制对象的第一层键值对。 // 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得</description>
+    </item>
+    
+  </channel>
+</rss>

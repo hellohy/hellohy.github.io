@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何在react中封装echarts - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="黄云" />
+  <meta name="description" content="echarts一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析echarts-for-react源码介绍如何在rea" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.39-DEV" />
+
+
+<link rel="canonical" href="https://hellohy.github.io/post/react-echarts/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="如何在react中封装echarts" />
+<meta property="og:description" content="echarts一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析echarts-for-react源码介绍如何在rea" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hellohy.github.io/post/react-echarts/" />
+
+
+
+<meta property="article:published_time" content="2017-12-18T20:37:18&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-12-18T20:37:18&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="如何在react中封装echarts">
+<meta itemprop="description" content="echarts一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析echarts-for-react源码介绍如何在rea">
+
+
+<meta itemprop="datePublished" content="2017-12-18T20:37:18&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-18T20:37:18&#43;00:00" />
+<meta itemprop="wordCount" content="3543">
+
+
+
+<meta itemprop="keywords" content="css,react,echarts," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何在react中封装echarts"/>
+<meta name="twitter:description" content="echarts一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析echarts-for-react源码介绍如何在rea"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何在react中封装echarts</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-18 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"> 经验总结 </a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#目录">目录</a></li>
+<li><a href="#为什么要封装">为什么要封装</a>
+<ul>
+<li><a href="#旧的思维">旧的思维</a></li>
+<li><a href="#存在的问题">存在的问题</a></li>
+<li><a href="#需要达到的目的">需要达到的目的</a></li>
+</ul></li>
+<li><a href="#如何实现">如何实现</a>
+<ul>
+<li><a href="#第一步-最简单的功能">第一步、最简单的功能</a></li>
+<li><a href="#第二步-为组件增加一些常用的功能">第二步、为组件增加一些常用的功能</a></li>
+<li><a href="#第三步-为组件封装事件">第三步、为组件封装事件</a>
+<ul>
+<li><a href="#第一个功能-echarts的事件处理">第一个功能、echarts的事件处理</a></li>
+<li><a href="#第二个功能-resize事件监听">第二个功能、resize事件监听</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p><a href="http://echarts.baidu.com/index.html">echarts</a>一款非常不错的可视化图表库，本文以echarts3.x版本为例，通过分析<a href="https://github.com/hustcc/echarts-for-react">echarts-for-react</a>源码介绍如何在react中封装使用echarts</p>
+
+<h2 id="目录">目录</h2>
+
+<ol>
+<li><a href="#为什么要封装">为什么要封装</a></li>
+<li><a href="#如何实现">如何实现</a></li>
+<li><a href="#总结">总结</a>
+- - -</li>
+</ol>
+
+<h2 id="为什么要封装">为什么要封装</h2>
+
+<h3 id="旧的思维">旧的思维</h3>
+
+<p>习惯了在jquery开发模式下导入echarts、swiper、d3等需要操作到真实dom的第三方库，突然切换到React，会按照旧的思维模式使用，导致一些问题产生。先看看不封装的情况下在React中使用echarts:</p>
+
+<pre><code class="language-javascript">import React, { Component } from 'react'
+import echarts from 'echarts'
+export default class OldChart extends Component {
+  componentDidMount () {
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('old-chart'))
+    // 绘制图表
+    myChart.setOption({
+      title: { text: 'ECharts 入门示例' },
+      tooltip: {},
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      },
+      yAxis: {},
+      series: [{
+        name: '销量',
+        type: 'bar',
+        data: [5, 20, 36, 10, 10, 20]
+      }]
+    })
+  }
+  render () {
+    return (
+      &lt;div id='old-chart' style={{ width: 400, height: 400 }} /&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>结果截图如下：
+<img src="https://i.imgur.com/vK9T4yg.png" alt="" /></p>
+
+<p>这种方式先通过document.getElementById()的形式先获取到真实的dom，然后通过echarts.init()方法实例化。</p>
+
+<p>例子中给出的是静态数据，如果数据是动态获取的，那就要把渲染echarts的数据放入state中，然后render()中通过echarts.setOption(this.state.option)方法来更新图表</p>
+
+<h3 id="存在的问题">存在的问题</h3>
+
+<ol>
+<li>echarts初始化需要访问DOM，为了整合到React中，我们需要在componentDidMount获取准备好的DOM，然后传递给echarts，再通过echarts的api来生成图，可以看出，实例化的方式有些繁琐</li>
+<li>代码完全不能复用，每实例化一个图表，我们都需要做一些重复的事情：在componentDidMount上获取准备好的dom，传递给echarts</li>
+<li>拓展性差，如果要监听windows.resize事件或者主题变更，我们可能需要一个个类操作过去进行变更</li>
+</ol>
+
+<h3 id="需要达到的目的">需要达到的目的</h3>
+
+<ol>
+<li>简单好用，调用起来越简单越好</li>
+<li>复用性强，拥有基本的能力：比如监听resize</li>
+<li>封装后也能轻易调用<a href="http://echarts.baidu.com/api.html#echartsInstance">echarts API</a></li>
+</ol>
+
+<hr />
+
+<h2 id="如何实现">如何实现</h2>
+
+<h3 id="第一步-最简单的功能">第一步、最简单的功能</h3>
+
+<pre><code class="language-javascript">/* test.js */
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import echarts from 'echarts'
+export default class ReactEcharts extends Component {
+  constructor (props) {
+    super(props)
+    this.echartsInstance = echarts // echarts object 
+    this.echartsElement = null // echarts dom
+  }
+  componentDidMount () {
+    // 获取dom容器上的实例，如果没有，则实例化
+    const echartObj = this.echartsInstance.getInstanceByDom(this.echartsElement) || this.echartsInstance.init(this.echartsElement)
+    // echarts的万能接口，设置图表实例的配置项以及数据，所有参数和数据的修改都通过setOption完成
+    echartObj.setOption(this.props.option)
+  }
+  render() {
+    const style = this.props.style || {
+      height: '300px'
+    }
+    // for render
+    return (
+      &lt;div
+        ref={(e) =&gt; { this.echartsElement = e }}
+        style={style}
+        className={this.props.className}
+      /&gt;
+    )
+  }
+}
+
+ReactEcharts.propTypes = {
+  option: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  className: PropTypes.string
+}
+
+ReactEcharts.defaultProps = {
+  style: {height: '300px'},
+  className: ''
+}
+
+</code></pre>
+
+<p>这里我们做了这几件事：
+1. 创建一个名为<code>ReactEcharts</code>的react组件，包含两个属性<code>echartsInstance</code>、<code>echartsElement</code>
+&gt; <code>echartsInstance</code>属性建立与echarts的连接，能通过该属性调用echarts的api
+&gt; <code>echartsElement</code>获取图表所在的dom，我们给一个初始值null
+2. 在render()中，通过ref设置一个回调函数，来获取dom元素，并将值赋予echartsElement属性
+&gt; 挂到react组件上的ref表示对组件实例的引用，而挂载到dom元素上时表示具体的dom元素节点。
+3. 在componentDidMount()中实例化echarts，判断当前dom元素是否已经有echarts实例，如果有则用已有的，没有则init，然后调用echarts的setOption()来渲染图，参数我们通过this.props.option获取</p>
+
+<p>ok, 搞定，理论上我们只需要调用这个组件时传递一个option就可以在页面上看到效果了，我们试一下：</p>
+
+<pre><code class="language-javascript">import ReactEcharts from './test'
+const option = {
+  title: { text: 'ECharts 入门示例' },
+  tooltip: {},
+  xAxis: {
+    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+  },
+  yAxis: {},
+  series: [{
+    name: '销量',
+    type: 'bar',
+    data: [5, 20, 36, 10, 10, 20]
+  }]
+}
+export default class testChart2 extends Component {
+  render () {
+    return (
+      &lt;ReactEcharts
+        option={option}
+        style={{ width: 400, height: 400 }} /&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>运行起来没有问题，在这里我们只要修改option的配置，就可以轻松更新图表了，option是动态的话也是没有问题的，只要你能将它的更新传递到<code>ReactEcharts</code>中即可</p>
+
+<h3 id="第二步-为组件增加一些常用的功能">第二步、为组件增加一些常用的功能</h3>
+
+<p>接下来，我们加快进度，一次性为<code>ReactEcharts</code>增加一系列功能：
+1. theme主题定制
+2. 完善echarts.setOption()方法能力，增加<code>notMerge</code>, <code>lazyUpdate</code>参数，<a href="http://echarts.baidu.com/api.html#echartsInstance.setOption">官方文档链接</a>
+&gt; <code>notMerge</code>可选，是否不跟之前设置的option进行合并，默认为false，即合并。</p>
+
+<blockquote>
+<p><code>lazyUpdate</code>可选，在设置完option后是否不立即更新图表，默认为false，即立即更新。
+3. 组件unmount时销毁相关echarts实例
+4. 实现加载动画效果，当数据量大或者异步的时候，显示Loading</p>
+</blockquote>
+
+<p>其中，这四点实现起来比较简单，参照echarts文档，在我们的componentDidMount()中作一些处理即可，这里就不详细讲了
+我们直接上代码，大家看看就明白了：</p>
+
+<pre><code class="language-javascript">export default class ReactEcharts extends Component {
+  constructor (props) {
+    super(props)
+    this.echartsInstance = echarts // echarts object 
+    this.echartsElement = null // echarts dom
+  }
+
+  // first add
+  componentDidMount () {
+    const echartObj = this.renderEchartDom()
+  }
+
+  // update
+  componentDidUpdate () {
+    this.renderEchartDom()
+  }
+
+  // 3. 组件unmount时销毁相关echarts实例
+  componentWillUnmount () {
+    if (this.echartsElement) {
+      this.echartsInstance.dispose(this.echartsElement)
+    }
+  }
+  // 1. theme主题定制
+  getEchartsInstance = () =&gt; this.echartsInstance.getInstanceByDom(this.echartsElement) ||
+    this.echartsInstance.init(this.echartsElement, this.props.theme);
+
+  // render the dom
+  renderEchartDom = () =&gt; {
+    // init the echart object
+    const echartObj = this.getEchartsInstance()
+    // 2. 完善echarts.setOption()方法能力，增加`notMerge`, `lazyUpdate`参数
+    echartObj.setOption(this.props.option, this.props.notMerge || false, this.props.lazyUpdate || false)
+    // 4. 实现加载动画效果，当数据量大或者异步的时候，显示Loading
+    if (this.props.showLoading) echartObj.showLoading(this.props.loadingOption || null)
+    else echartObj.hideLoading()
+
+    return echartObj
+  }
+
+  render () {
+    // 和上面一样，这里就不重复了...
+    }
+}
+ReactEcharts.propTypes = {
+  option: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  echarts: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  notMerge: PropTypes.bool,
+  lazyUpdate: PropTypes.bool,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  className: PropTypes.string,
+  theme: PropTypes.string,
+  showLoading: PropTypes.bool,
+  loadingOption: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+}
+
+ReactEcharts.defaultProps = {
+  echarts: {},
+  notMerge: false,
+  lazyUpdate: false,
+  style: {height: '300px'},
+  className: '',
+  theme: null,
+  showLoading: false,
+  loadingOption: null,
+}
+</code></pre>
+
+<h3 id="第三步-为组件封装事件">第三步、为组件封装事件</h3>
+
+<p>到目前为止，我们已经封装了一个挺好用的“静态”图表了，这里的静态指的是图表完全不能交互，dom尺寸变动图表也不会更新，显然这不太友好。</p>
+
+<p>所以我们需要实现以下两个功能
+1. echarts的事件处理
+2. 监听窗口变动事件，使得dom尺寸发生变化时，图表能够更新</p>
+
+<p>直观的，我们只要对外暴露一个echarts实例的接口，让外部自己通过该接口去绑定事件就可以。</p>
+
+<p>但是这样对于外部调用者来说就比较繁琐，从使用者的角度，希望能够只要传入一事件对象，就能帮忙监听所有事件</p>
+
+<p>为了达到这个目的，我们可以这样做：</p>
+
+<h4 id="第一个功能-echarts的事件处理">第一个功能、echarts的事件处理</h4>
+
+<ol>
+<li><p>先定义一个事件对象，数据结构如下:</p>
+
+<pre><code class="language-javascript">{
+'eventName': callback, // callback是回调函数
+// 例如：
+click: function () {...},
+legendselectchanged:  function () {...},
+...
+}
+</code></pre>
+
+<p>其中属性值对应echarts支持的事件名<a href="http://echarts.baidu.com/api.html#events">echarts event api</a></p></li>
+
+<li><p>假设<code>ReactEcharts</code>组件接受一个props.onEvents的事件对象，我们为<code>ReactEcharts</code>组件增加一个方法<code>bindEvent()</code>
+```javascript
+componentDidMount () {
+const echartObj = this.renderEchartDom()
+const onEvents = this.props.onEvents || {}
+this.bindEvents(echartObj, onEvents)
+}</p></li>
+</ol>
+
+<p>bindEvents = (instance, events) =&gt; {
+  const _loopEvent = (eventName) =&gt; {
+    if (typeof eventName === &lsquo;string&rsquo; &amp;&amp; typeof events[eventName] === &lsquo;function&rsquo;) {
+      instance.off(eventName)
+      instance.on(eventName, (param) =&gt; {
+        // 触发回调
+        events<a href="param, instance">eventName</a>
+      })
+    }
+  }</p>
+
+<p>for (const eventName in events) {
+    if (Object.prototype.hasOwnProperty.call(events, eventName)) {
+      _loopEvent(eventName)
+    }
+  }
+}</p>
+
+<pre><code>代码理解起来不难，遍历`onEvents`对象，并通过echarts.on()接口将`eventName`和回调函数callback绑定，除了保留echarts自身事件的事件参数param，我们还加上一个`instance`参数，提供更强的能力
+
+3. 接下来看一下外部如何调用：
+```javascript
+export default class YourComponentName extends Component {
+  componentDidMount () { /** ... **/ }
+  getOption () { /** ... **/ }
+  onChartClick (param, echart) {
+    console.log('onChartClick', param, echart)
+  }
+  onChartLegendSelectChanged (param, echart) {
+    console.log('onLegendSelect', param, echart)
+  }
+  render () {
+    const onEvents = {
+      click: this.onChartClick,
+      legendselectchanged: this.onChartLegendSelectChanged
+    }
+    return (
+      &lt;div&gt;
+        &lt;EchartsReact
+          option={this.getOption()}
+          style={{height: '800px', width: '100%'}}
+          onEvents={onEvents}
+          className='react-echarts'
+        /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>这样我们就完成了事件处理</p>
+
+<h4 id="第二个功能-resize事件监听">第二个功能、resize事件监听</h4>
+
+<p>接下来再处理一下resize，当外部容器尺寸变化或者用户窗口变化的时候图表能够自动更新，如何监听dom尺寸的变化，我们在本文就不详细讲解了，这里我们直接调用一个npm包<a href="https://www.npmjs.com/package/element-resize-event">element-resize-event</a>来帮助我们监听dom尺寸变化</p>
+
+<p>引入这个包，将<code>ReactEcharts</code>组件的componentDidMount()修改如下：</p>
+
+<pre><code class="language-javascript">import elementResizeEvent from 'element-resize-event'
+// ...
+  componentDidMount () {
+    const echartObj = this.renderEchartDom()
+    const onEvents = this.props.onEvents || {}
+    this.bindEvents(echartObj, onEvents)
+
+    // on resize
+    elementResizeEvent(this.echartsElement, () =&gt; {
+      echartObj.resize()
+    })
+  }
+  
+  componentWillUnmount () {
+    if (this.echartsElement) {
+      // if elementResizeEvent.unbind exist, just do it.
+      if (typeof elementResizeEvent.unbind === 'function') {
+        elementResizeEvent.unbind(this.echartsElement)
+      }
+      this.echartsInstance.dispose(this.echartsElement)
+    }
+  }
+// ...
+</code></pre>
+
+<blockquote>
+<p>同时别忘了在unmount时解绑事件</p>
+</blockquote>
+
+<p>好了，到目前为止，我们完成了大部分工作，我们的<code>ReactEcharts</code>组件能够应付大部分的应用场景，但是还有一些细节没有处理（诸如chartReady，onResizeCallback）
+&gt; chartReady图表实例化之前触发</p>
+
+<blockquote>
+<p>onResizeCallback窗口变动后触发，可用于图表内部坐标点的重新计算</p>
+</blockquote>
+
+<p>本文就不详细讲了，最新代码可以到<a href="http://git.sdp.nd/112356/ae-example-echarts/tree/master/src/components/echarts">这里</a>查看</p>
+
+<hr />
+
+<h2 id="总结">总结</h2>
+
+<ol>
+<li>当使用React遇到需要使用第三方库的时候，可以根据第三方库的api以及从使用者的角度来进行一些简单的封装，使得这些第三方库结合React使用起来更加方便</li>
+<li>封装的时候需要预见一些可能需要实现的功能，即时现在不用，将来也需要扩展</li>
+</ol>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">黄云</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-12-18</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/css/">css</a>
+          
+          <a href="/tags/react/">react</a>
+          
+          <a href="/tags/echarts/">echarts</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/tarjan/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">javascript实现Tarjan算法寻找有向图的强连通分量</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/">
+            <span class="next-text nav-default">egret入门介绍</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="hitcloudy@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://hellohy.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Hellohy</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-104668275-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
