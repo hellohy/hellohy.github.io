@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>javascript实现Tarjan算法寻找有向图的强连通分量</title>
+      <title>Tarjan算法寻找有向图的强连通分量</title>
       <link>https://hellohy.github.io/post/tarjan/</link>
-      <pubDate>Thu, 22 Mar 2018 02:06:29 +0000</pubDate>
+      <pubDate>Tue, 20 Mar 2018 12:06:29 +0000</pubDate>
       
       <guid>https://hellohy.github.io/post/tarjan/</guid>
-      <description>javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，</description>
+      <description>Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些</description>
     </item>
     
     <item>

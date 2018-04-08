@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>javascript实现Tarjan算法寻找有向图的强连通分量 - Even - A super concise theme for Hugo</title>
+  <title>Tarjan算法寻找有向图的强连通分量 - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Hellohy" />
-  <meta name="description" content="javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，" />
+<meta name="author" content="黄云" />
+  <meta name="description" content="Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些" />
 
   <meta name="keywords" content="Hugo, theme, even, hellohy, javascript" />
 
@@ -49,18 +49,16 @@
 
 
 
-<meta property="og:title" content="javascript实现Tarjan算法寻找有向图的强连通分量" />
-<meta property="og:description" content="javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，" />
+<meta property="og:title" content="Tarjan算法寻找有向图的强连通分量" />
+<meta property="og:description" content="Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hellohy.github.io/post/tarjan/" />
 
 
 
-<meta property="article:published_time" content="2018-03-22T02:06:29&#43;00:00"/>
+<meta property="article:published_time" content="2018-03-20T12:06:29&#43;00:00"/>
 
-<meta property="article:modified_time" content="2018-03-22T02:06:29&#43;00:00"/>
-
-
+<meta property="article:modified_time" content="2018-03-20T12:06:29&#43;00:00"/>
 
 
 
@@ -70,20 +68,22 @@
 
 
 
-<meta itemprop="name" content="javascript实现Tarjan算法寻找有向图的强连通分量">
-<meta itemprop="description" content="javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，">
 
 
-<meta itemprop="datePublished" content="2018-03-22T02:06:29&#43;00:00" />
-<meta itemprop="dateModified" content="2018-03-22T02:06:29&#43;00:00" />
-<meta itemprop="wordCount" content="2137">
+<meta itemprop="name" content="Tarjan算法寻找有向图的强连通分量">
+<meta itemprop="description" content="Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些">
+
+
+<meta itemprop="datePublished" content="2018-03-20T12:06:29&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-20T12:06:29&#43;00:00" />
+<meta itemprop="wordCount" content="2425">
 
 
 
-<meta itemprop="keywords" content="graph,tarjan," />
+<meta itemprop="keywords" content="graph,tarjan,工程院三部二处," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="javascript实现Tarjan算法寻找有向图的强连通分量"/>
-<meta name="twitter:description" content="javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，"/>
+<meta name="twitter:title" content="Tarjan算法寻找有向图的强连通分量"/>
+<meta name="twitter:description" content="Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -146,12 +146,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">javascript实现Tarjan算法寻找有向图的强连通分量</h1>
+      <h1 class="post-title">Tarjan算法寻找有向图的强连通分量</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-03-22 </span>
+        <span class="post-time"> 2018-03-20 </span>
         
-        <span class="more-meta"> 约 2137 字 </span>
+        <span class="more-meta"> 约 2425 字 </span>
         <span class="more-meta"> 预计阅读 5 分钟 </span>
         
       </div>
@@ -191,7 +191,7 @@
     <div class="post-content">
       
 
-<p>javascript实现Tarjan算法寻找有向图的强连通分量</p>
+<p>Tarjan算法寻找有向图的强连通分量</p>
 
 <p>本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些图的定义，图的邻接表和邻接矩阵表示法，图的两种遍历方法，在解决问题的时候如何选用正确的数据结构来表示图</p>
 
@@ -269,7 +269,7 @@
 <p>2.再递归地去访问初始节点的邻接链表中其他没有访问到的节点</p>
 
 <p>示意图：
-<img src="dfs.gif" alt="image" /></p>
+<img src="images/dfs.gif" alt="image" /></p>
 
 <h3 id="广度优先搜索bfs">广度优先搜索BFS</h3>
 
@@ -282,7 +282,7 @@
 <p>3.将所有与v相邻的未访问的节点添加到队列</p>
 
 <p>示意图：
-<img src="bfs.jpg" alt="image" /></p>
+<img src="images/bfs.jpg" alt="image" /></p>
 
 <h2 id="tarjan算法">Tarjan算法</h2>
 
@@ -293,7 +293,7 @@
 <p>首先还是dfs过程
 （注意搜过的点不会再搜） 则能产生环的只有 <strong>指向已经遍历过的点</strong>的边</p>
 
-<p><img src="https://segmentfault.com/img/bVIqzn?w=340&amp;h=345" alt="image" /></p>
+<p><img src="images/1.jpg" alt="image" /></p>
 
 <p>只有红色与绿色边有可能产生环。
 对于深搜过程，我们需要一个栈来保存当前所在路径上的所有点（栈中所有点一定是有父子关系的）
@@ -311,7 +311,7 @@
 
 <p>对下面两种边进行处理</p>
 
-<p><img src="https://segmentfault.com/img/bVIqz8?w=120&amp;h=263" alt="image" /></p>
+<p><img src="images/2.jpg" alt="image" /></p>
 
 <p>Stack = {1,2,3}。3没有多余的其他边，因此3退栈，把3作为一个强连通分量</p>
 
@@ -319,7 +319,7 @@
 
 <p>再次深搜</p>
 
-<p><img src="https://segmentfault.com/img/bVIqAf?w=114&amp;h=261" alt="image" /></p>
+<p><img src="images/3.jpg" alt="image" /></p>
 
 <p>此时栈 Stack = {1,2,7}
 发现红边指向了已经遍历过的点3 =&gt; 是上述的2种边之一
@@ -335,7 +335,7 @@
 
 <p>再次深搜</p>
 
-<p><img src="https://segmentfault.com/img/bVIqAp?w=229&amp;h=343" alt="image" /></p>
+<p><img src="images/4.jpg" alt="image" /></p>
 
 <p>此时 Stack = {1,4,5,6}
 发现绿边指向了已经遍历过的点4 =&gt; 是上述的2种边之一
@@ -348,7 +348,7 @@
 
 <p>实际上可能会出现大环套小环</p>
 
-<p><img src="https://segmentfault.com/img/bVIqAI?w=364&amp;h=389" alt="image" /></p>
+<p><img src="images/5.jpg" alt="image" /></p>
 
 <p>出现了大环套小环的情况，显然我们认为最大环是一个强连通分量(即:{4,5,6,8} ）</p>
 
@@ -358,9 +358,9 @@
 
 <p>1.index 表示遍历到v点时是第几次dfs，时间戳。比如第一次dfs的index的值为 1，第二次dfs的index的值为 2，以此类推。可以通过比较大小来判断是爸爸还是儿子。（是后向边还是横插边？）</p>
 
-<p>2.lowIndex 表示从该节点v出发经过有向边可到达的所有节点中最小的index</p>
+<p>2.lowlink 表示从该节点v出发经过有向边可到达的所有节点中最小的index</p>
 
-<p>显然，v.lowIndex总是不大于v.index，当从v出发经有向边不能到达其他节点时，这两个值相等</p>
+<p>显然，v.lowlink总是不大于v.index，当从v出发经有向边不能到达其他节点时，这两个值相等</p>
 
 <p>伪代码：</p>
 
@@ -405,7 +405,102 @@
        end function
 </code></pre>
 
+<p>demo: <a href="http://runjs.cn/code/h2ffhtpp">tarjan</a></p>
+
 <p>对每个节点，过程<code>strongconnect</code>只被调用一次；整个程序中每条边最多被考虑一次。因此算法的运行时间关于图的边数是线性的，所以算法复杂度：O(|V|+|E|)</p>
+
+<pre><code class="language-javascript">function Graph(vertices){
+    this.vertices = vertices || [];
+}
+
+function Vertex(name){
+    this.name = name || null;
+    this.connections = [];
+    
+    // used in tarjan algorithm
+    // went ahead and explicity initalized them
+    this.index= -1;
+    this.lowlink = -1;
+}
+Vertex.prototype = {
+    equals: function(vertex){
+        // equality check based on vertex name
+        return (vertex.name &amp;&amp; this.name==vertex.name);
+    }
+};
+
+function VertexStack(vertices) {
+    this.vertices = vertices || [];
+}
+VertexStack.prototype = {
+    contains: function(vertex){
+        for (var i in this.vertices){
+            if (this.vertices[i].equals(vertex)){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+function Tarjan(graph) {
+    this.index = 0;
+    this.stack = new VertexStack();
+    this.graph = graph;
+    this.scc = [];
+}
+Tarjan.prototype = {
+    run: function(){
+        for (var i in this.graph.vertices){
+            if (this.graph.vertices[i].index&lt;0){
+                this.strongconnect(this.graph.vertices[i]);
+            }
+        }
+        return this.scc;
+    },
+    strongconnect: function(vertex){
+        // Set the depth index for v to the smallest unused index
+        vertex.index = this.index;
+        vertex.lowlink = this.index;
+        this.index = this.index + 1;
+        this.stack.vertices.push(vertex);
+        
+        // Consider successors of v
+        // aka... consider each vertex in vertex.connections
+        for (var i in vertex.connections){
+            var v = vertex;
+            var w = vertex.connections[i];
+            if (w.index&lt;0){
+                // Successor w has not yet been visited; recurse on it
+                this.strongconnect(w);
+                v.lowlink = Math.min(v.lowlink,w.lowlink);
+            } else if (this.stack.contains(w)){
+                // Successor w is in stack S and hence in the current SCC
+                v.lowlink = Math.min(v.lowlink,w.index);
+            }
+        }
+        
+        // If v is a root node, pop the stack and generate an SCC
+        if (vertex.lowlink==vertex.index){
+            // start a new strongly connected component
+            var vertices = [];
+            var w = null;
+            if (this.stack.vertices.length&gt;0){
+                do {
+                    w = this.stack.vertices.pop();
+                    // add w to current strongly connected component
+                    vertices.push(w);
+                } while (!vertex.equals(w));
+            }
+            // output the current strongly connected component
+            // ... i'm going to push the results to a member scc array variable
+            if (vertices.length&gt;0){
+                this.scc.push(vertices);
+            }
+        }
+    }
+};
+</code></pre>
 
 <h2 id="分图算法">分图算法</h2>
 
@@ -440,11 +535,11 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">Hellohy</span>
+    <span class="item-content">黄云</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-03-22</span>
+    <span class="item-content">2018-03-20</span>
   </p>
   
   
@@ -459,6 +554,8 @@
           <a href="/tags/graph/">graph</a>
           
           <a href="/tags/tarjan/">tarjan</a>
+          
+          <a href="/tags/%E5%B7%A5%E7%A8%8B%E9%99%A2%E4%B8%89%E9%83%A8%E4%BA%8C%E5%A4%84/">工程院三部二处</a>
           
         </div>
 
@@ -481,10 +578,10 @@
     <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
   <script type="text/javascript">
   const gitment = new Gitment({
-    id: '2018-03-22 02:06:29 \x2b0000 UTC',
-    title: 'javascript实现Tarjan算法寻找有向图的强连通分量',
+    id: '2018-03-20 12:06:29 \x2b0000 UTC',
+    title: 'Tarjan算法寻找有向图的强连通分量',
     link: decodeURI(location.href),
-    desc: 'javascript实现Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，',
+    desc: 'Tarjan算法寻找有向图的强连通分量 本文将介绍如何用javascript实现Tarjan算法来寻找图的强连通分量，在此之前，会简单介绍一些',
     owner: 'hellohy',
     repo: 'blog-comment',
     oauth: {
