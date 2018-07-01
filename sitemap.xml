@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hellohy.github.io/post/chrome-devtool-profiler/</loc>
+    <lastmod>2018-07-01T04:29:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://hellohy.github.io/post/tarjan/</loc>
     <lastmod>2018-03-20T12:06:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -65,6 +72,13 @@
   </url>
   
   <url>
+    <loc>https://hellohy.github.io/tags/chrome/</loc>
+    <lastmod>2018-07-01T04:29:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hellohy.github.io/tags/clone/</loc>
     <lastmod>2017-08-16T14:46:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,7 +115,7 @@
   
   <url>
     <loc>https://hellohy.github.io/</loc>
-    <lastmod>2018-03-20T12:06:29+00:00</lastmod>
+    <lastmod>2018-07-01T04:29:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -116,6 +130,13 @@
   <url>
     <loc>https://hellohy.github.io/tags/graph/</loc>
     <lastmod>2018-03-20T12:06:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hellohy.github.io/tags/javascript/</loc>
+    <lastmod>2018-07-01T04:29:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -142,20 +163,13 @@
   
   <url>
     <loc>https://hellohy.github.io/tags/</loc>
-    <lastmod>2017-08-16T14:46:58+00:00</lastmod>
+    <lastmod>2018-07-01T04:29:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hellohy.github.io/tags/tarjan/</loc>
-    <lastmod>2018-03-20T12:06:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellohy.github.io/tags/%E5%B7%A5%E7%A8%8B%E9%99%A2%E4%B8%89%E9%83%A8%E4%BA%8C%E5%A4%84/</loc>
     <lastmod>2018-03-20T12:06:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>

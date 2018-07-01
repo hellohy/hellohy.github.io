@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Even - A super concise theme for Hugo</title>
+    <link>https://hellohy.github.io/tags/javascript/</link>
+    <description>Recent content in Javascript on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 01 Jul 2018 04:29:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://hellohy.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chrome DevTools Profiler(Memory)</title>
+      <link>https://hellohy.github.io/post/chrome-devtool-profiler/</link>
+      <pubDate>Sun, 01 Jul 2018 04:29:46 +0800</pubDate>
+      
+      <guid>https://hellohy.github.io/post/chrome-devtool-profiler/</guid>
+      <description>本文介绍chrome devtool的Profilers(Memory)面板的使用 使用 Chrome 任务管理器实时监视内存使用 使用 Chrome 任务管理器作为内存问题</description>
+    </item>
+    
+  </channel>
+</rss>
