@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Story on Hellohy</title>
+    <title>Story on Even - A super concise theme for Hugo</title>
     <link>https://hellohy.github.io/tags/story/</link>
-    <description>Recent content in Story on Hellohy</description>
+    <description>Recent content in Story on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 11 Feb 2018 12:34:41 -0500</lastBuildDate>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 23 Jul 2018 01:46:51 +0800</lastBuildDate>
     
 	<atom:link href="https://hellohy.github.io/tags/story/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Dear Jane, regarding Mr. Bennet</title>
-      <link>https://hellohy.github.io/posts/dear-jane/</link>
-      <pubDate>Sun, 11 Feb 2018 12:34:41 -0500</pubDate>
+      <title>React Jest</title>
+      <link>https://hellohy.github.io/post/react-jest/</link>
+      <pubDate>Mon, 23 Jul 2018 01:46:51 +0800</pubDate>
       
-      <guid>https://hellohy.github.io/posts/dear-jane/</guid>
-      <description>Chapter One It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
-However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.</description>
-    </item>
-    
-    <item>
-      <title>Oh, Alice</title>
-      <link>https://hellohy.github.io/posts/oh-alice/</link>
-      <pubDate>Fri, 09 Feb 2018 12:32:12 -0500</pubDate>
-      
-      <guid>https://hellohy.github.io/posts/oh-alice/</guid>
-      <description>Nor did such soothing scenes, however temporary, fail of at least as temporary an effect on Ahab. But if these secret golden keys did seem to open in him his own secret golden treasuries, yet did his breath upon them prove but tarnishing. Alice opened the door and found that it led into a small passage, not much larger than a rat-hole: she knelt down and looked along the passage into the loveliest garden you ever saw.</description>
+      <guid>https://hellohy.github.io/post/react-jest/</guid>
+      <description>初探前端测试框架 Jest 前端测试工具一览 前端测试工具也和前端的框架一样纷繁复杂，其中常见的测试工具，大致可分为测试框架、断言库、测试覆盖率工具等几</description>
     </item>
     
   </channel>
