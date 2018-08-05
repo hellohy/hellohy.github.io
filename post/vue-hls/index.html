@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>h5直播技术探索 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Hellohy" />
+  <meta name="description" content="本文主要是对目前WEB端主流的直播技术进行一些探索后整理的资料 视频流协议 主流的分为两种，HLS和RTMP，移动端WEB更多的采用HLS，由于" />
+
+  <meta name="keywords" content="Hugo, theme, even, hellohy, javascript" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="canonical" href="https://hellohy.github.io/post/vue-hls/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="h5直播技术探索" />
+<meta property="og:description" content="本文主要是对目前WEB端主流的直播技术进行一些探索后整理的资料 视频流协议 主流的分为两种，HLS和RTMP，移动端WEB更多的采用HLS，由于" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hellohy.github.io/post/vue-hls/" />
+
+
+
+<meta property="article:published_time" content="2018-08-05T17:20:18&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-08-05T17:20:18&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="h5直播技术探索">
+<meta itemprop="description" content="本文主要是对目前WEB端主流的直播技术进行一些探索后整理的资料 视频流协议 主流的分为两种，HLS和RTMP，移动端WEB更多的采用HLS，由于">
+
+
+<meta itemprop="datePublished" content="2018-08-05T17:20:18&#43;08:00" />
+<meta itemprop="dateModified" content="2018-08-05T17:20:18&#43;08:00" />
+<meta itemprop="wordCount" content="1621">
+
+
+
+<meta itemprop="keywords" content="javascript,story," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="h5直播技术探索"/>
+<meta name="twitter:description" content="本文主要是对目前WEB端主流的直播技术进行一些探索后整理的资料 视频流协议 主流的分为两种，HLS和RTMP，移动端WEB更多的采用HLS，由于"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Hellohy</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Hellohy</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">h5直播技术探索</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-05 </span>
+        
+        <span class="more-meta"> 约 1621 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#视频流协议">视频流协议</a>
+<ul>
+<li><a href="#hls-http-living-streaming">HLS（HTTP Living Streaming)</a></li>
+<li><a href="#rtmp-real-time-messaging-protocol">RTMP (Real Time Messaging Protocol)</a></li>
+<li><a href="#优缺点比对">优缺点比对:</a></li>
+</ul></li>
+<li><a href="#hls原理探究">HLS原理探究</a></li>
+<li><a href="#demo">DEMO</a></li>
+<li><a href="#总结">总结</a></li>
+<li><a href="#参考文章">参考文章</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>本文主要是对目前WEB端主流的直播技术进行一些探索后整理的资料</p>
+
+<h2 id="视频流协议">视频流协议</h2>
+
+<p>主流的分为两种，HLS和RTMP，移动端WEB更多的采用HLS，由于其跨平台效果好，但是延迟性较高，pc端WEB更多的采用RTMP，实时性比较好</p>
+
+<h3 id="hls-http-living-streaming">HLS（HTTP Living Streaming)</h3>
+
+<p>HTTP Live Streaming（简称 HLS）是一个基于 HTTP 的视频流协议，由 Apple 公司实现，Mac OS 上的 QuickTime、Safari 以及 iOS 上的 Safari 都能很好的支持 HLS，高版本 Android 也增加了对 HLS 的支持。一些常见的客户端如：MPlayerX、VLC 也都支持 HLS 协议。</p>
+
+<p>最大的特点是兼容性比较好，但是发现caniuse上看<a href="http://caniuse.com/#search=HLS">can i use HLS</a>，只有<code>Edge</code>和<code>Safari</code>提供原生支持，那实际上兼容性比较好指的是可以让用户在不使用flash情况下也能用。</p>
+
+<p>可以引入<code>videojs-contrib-hls</code>来使其他浏览器获得支持，注意需要直播流服务端同时开启CORS，文档上有说明：</p>
+
+<blockquote>
+<p>Unlike a native HLS implementation, the HLS tech has to comply with the browser&rsquo;s security policies. That means that all the files that make up the stream must be served from the same domain as the page hosting the video player or from a server that has appropriate CORS headers configured. Easy instructions are available for popular webservers and most CDNs should have no trouble turning CORS on for your account.</p>
+</blockquote>
+
+<h3 id="rtmp-real-time-messaging-protocol">RTMP (Real Time Messaging Protocol)</h3>
+
+<p>Real Time Messaging Protocol（简称 RTMP）是 Macromedia 开发的一套视频直播协议，现在属于 Adobe。这套方案需要搭建专门的 RTMP 流媒体服务如 Adobe Media Server，并且在浏览器中只能使用 Flash 实现播放器。它的实时性非常好，延迟很小，但无法支持移动端 WEB 播放是它的硬伤。</p>
+
+<p>虽然无法在iOS的H5页面播放，但是对于iOS原生应用是可以自己写解码去解析的, RTMP 延迟低、实时性较好。</p>
+
+<p>浏览器端，HTML5 video标签无法播放 RTMP 协议的视频，可以通过 video.js 来实现。</p>
+
+<h3 id="优缺点比对">优缺点比对:</h3>
+
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>优点</th>
+<th>缺点</th>
+<th>特点</th>
+<th>原理</th>
+<th>使用场景</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HLS</td>
+<td>跨平台</td>
+<td>延迟高(10~20s)</td>
+<td>短连接HTTP</td>
+<td>集合一段时间数据生成ts切片文件更新m3u8文件</td>
+<td>移动端、pc端</td>
+</tr>
+
+<tr>
+<td>RTMP</td>
+<td>实时性好，延迟低（1~3s）</td>
+<td>1.高并发下不稳定<br>2.IOS平台要开发支持相关协议的播放器<br>3.使用非标准TCP端口（不使用80，443）</td>
+<td>长连接TCP</td>
+<td>每个时刻的数据收到后立即发送</td>
+<td>pc端，互动性强，实时性要求高</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="hls原理探究">HLS原理探究</h2>
+
+<p>工作流程图：
+<img src="hls.png" alt="hls" /></p>
+
+<p>提供HLS的服务器一般做以下这两种事情：</p>
+
+<ol>
+<li>编码：以 H.263 格式对图像进行编码，以 MP3 或者 HE-AAC 对声音进行编码，最终打包到 MPEG-2 TS（Transport Stream）容器之中；</li>
+<li>分割：把编码好的 TS 文件等长切分成后缀为 ts 的小文件，并生成一个 .m3u8 的纯文本索引文件；</li>
+</ol>
+
+<p>客户端采用的是m3u8文件，和音频文件m3u很像，简单来说是m3u8是包含了多个ts文件的播放列表，m3u8 必须动态更新，ts 可以走 CDN。可以看一个m3u8文件的样子：</p>
+
+<p><img src="m3u8.png" alt="m3u8" /></p>
+
+<p>其中：</p>
+
+<ul>
+<li>#EXTM3U m3u文件头，必须放在第一行。</li>
+<li>#EXT-X-TARGETDURATION 每个分片TS的最大的时长。</li>
+<li>#EXT-X-VERSION 用以标示协议版本。</li>
+<li>#EXT-X-MEDIA-SEQUENCE TS分片的序列号。</li>
+<li>#EXT-X-PLAYLIST-TYPE 提供关于PlayList的可变性的信息， 这个对整个PlayList文件有效，是可选的。</li>
+<li>#EXTINF extra info，分片TS的信息，如时长，带宽等。</li>
+</ul>
+
+<p>同时可以看到 HLS 协议本质还是一个个的 HTTP 请求 / 响应，所以适应性很好，不会受到防火墙影响。但它也有一个致命的弱点：延迟现象非常明显。如果每个 ts 按照 5 秒来切分，一个 m3u8 放 6 个 ts 索引，那么至少就会带来 30 秒的延迟。如果减少每个 ts 的长度，减少 m3u8 中的索引数，延时确实会减少，但会带来更频繁的缓冲，对服务端的请求压力也会成倍增加。所以只能根据实际情况找到一个折中的点。</p>
+
+<h2 id="demo">DEMO</h2>
+
+<p>项目使用vue-cli搭建，主要采用<a href="https://github.com/surmon-china/vue-video-player">vue-video-player</a>以及viedo.js的插件<a href="https://github.com/videojs/videojs-contrib-hls">videojs-contrib-hls</a>来实现直播流的播放：</p>
+
+<p><a href="https://github.com/hellohy/vue-hls">demo 源码</a></p>
+
+<p><a href="https://hellohy.github.io/vue-hls/#/">在线演示</a></p>
+
+<p>效果如下:</p>
+
+<p><img src="demo.png" alt="demo" /></p>
+
+<h2 id="总结">总结</h2>
+
+<p>如果采用HLS技术直播，客户端可能需要重点关注一下这些问题：</p>
+
+<ol>
+<li>H5 HLS 播放卡顿问题，server 端可以做好分片策略，将 ts 文件放在 CDN 上，前端可尽量做到 DNS 缓存等。</li>
+<li>要达到更好的实时互动，可以采用RTMP</li>
+<li>各平台播放器表现不统一，尤其是安卓下，很多浏览器把video标签替换成了原生自带播放器样式跟行为，很难控制其行为跟样式。</li>
+</ol>
+
+<h2 id="参考文章">参考文章</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming">HLS wiki</a></p>
+
+<p><a href="https://www.dacast.com/blog/hls-streaming-protocol/">hls-streaming-protocol</a></p>
+
+<p><a href="https://aotu.io/notes/2016/10/09/HTML5-SopCast/?o2src=juejin&amp;o2layout=compat">凹凸实验室-H5直播起航</a></p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Hellohy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-08-05</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/javascript/">javascript</a>
+          
+          <a href="/tags/story/">story</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/react-jest/">
+            <span class="next-text nav-default">React Jest</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="comments-gitment"></div>
+  <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+    <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+  <script type="text/javascript">
+  const gitment = new Gitment({
+    id: '2018-08-05 17:20:18 \x2b0800 \x2b0800',
+    title: 'h5直播技术探索',
+    link: decodeURI(location.href),
+    desc: '本文主要是对目前WEB端主流的直播技术进行一些探索后整理的资料 视频流协议 主流的分为两种，HLS和RTMP，移动端WEB更多的采用HLS，由于',
+    owner: 'hellohy',
+    repo: 'blog-comment',
+    oauth: {
+      client_id: '05de314e8fbaa9589123',
+      client_secret: '665647f2e093602a19ebce634e98108bf1fe9b6d'
+    }
+  })
+  gitment.render('comments-gitment')
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="hitcloudy@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://hellohy.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Hellohy</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-104668275-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
