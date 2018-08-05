@@ -128,13 +128,6 @@
   </url>
   
   <url>
-    <loc>https://hellohy.github.io/</loc>
-    <lastmod>2018-08-05T17:20:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://hellohy.github.io/tags/fixed/</loc>
     <lastmod>2017-08-14T21:05:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -192,6 +185,13 @@
   <url>
     <loc>https://hellohy.github.io/tags/tarjan/</loc>
     <lastmod>2018-03-20T12:06:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hellohy.github.io/</loc>
+    <lastmod>2018-08-05T17:20:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
