@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.47-DEV" />
+<meta name="generator" content="Hugo 0.49-DEV" />
 
 
 <link rel="canonical" href="https://hellohy.github.io/post/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/" />
@@ -52,31 +52,15 @@
 <meta property="og:title" content="egret入门介绍" />
 <meta property="og:description" content="介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用 Egret入门指南 简单介绍下egret~ 目录 容器 资源管理 纹理和位" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hellohy.github.io/post/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/" />
-
-
-
-<meta property="article:published_time" content="2017-11-17T11:19:21&#43;00:00"/>
-
+<meta property="og:url" content="https://hellohy.github.io/post/egret%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/" /><meta property="article:published_time" content="2017-11-17T11:19:21&#43;00:00"/>
 <meta property="article:modified_time" content="2017-11-17T11:19:21&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
 <meta itemprop="name" content="egret入门介绍">
 <meta itemprop="description" content="介绍一下egret的容器概念、资源管理、纹理与位图、事件以及tween的使用 Egret入门指南 简单介绍下egret~ 目录 容器 资源管理 纹理和位">
 
 
 <meta itemprop="datePublished" content="2017-11-17T11:19:21&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-17T11:19:21&#43;00:00" />
-<meta itemprop="wordCount" content="1667">
+<meta itemprop="wordCount" content="1666">
 
 
 
@@ -151,7 +135,7 @@
       <div class="post-meta">
         <span class="post-time"> 2017-11-17 </span>
         
-        <span class="more-meta"> 约 1667 字 </span>
+        <span class="more-meta"> 约 1666 字 </span>
         <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
@@ -318,15 +302,18 @@ stage.addChild(this.logo);//添加到显示列表
 <h2 id="事件">事件</h2>
 
 <ol>
-<li>事件的基类是Event，所有的事件类从Event扩展而来, 来看一下Event的构造函数：
-<code>
-public constructor(type:string, bubbles:boolean = false, cancelable:boolean = false) {
+<li><p>事件的基类是Event，所有的事件类从Event扩展而来, 来看一下Event的构造函数：</p>
+
+<pre><code>public constructor(type:string, bubbles:boolean = false, cancelable:boolean = false) {
 this._type = type;
 this._bubbles = bubbles;
 this._cancelable = cancelable;
 }
-</code>
-&gt; 这就说明Egret中的事件支持冒泡机制，您可以在创建事件的时候决定它是否冒泡，同样也就有了target和currentTarget之分。</li>
+</code></pre>
+
+<blockquote>
+<p>这就说明Egret中的事件支持冒泡机制，您可以在创建事件的时候决定它是否冒泡，同样也就有了target和currentTarget之分。</p>
+</blockquote></li>
 </ol>
 
 <h2 id="tween的使用">Tween的使用</h2>
@@ -457,7 +444,7 @@ tw.to({x:360,y:600},1000,egret.Ease.sineIn);
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
