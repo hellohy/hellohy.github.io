@@ -6,10 +6,19 @@
     <description>Recent content on hellohy blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 05 Aug 2018 17:20:18 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Sep 2018 01:35:39 +0800</lastBuildDate>
     
 	<atom:link href="https://hellohy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Theme Preview</title>
+      <link>https://hellohy.github.io/post/theme-preview/</link>
+      <pubDate>Sun, 16 Sep 2018 01:35:39 +0800</pubDate>
+      
+      <guid>https://hellohy.github.io/post/theme-preview/</guid>
+      <description>Copy from 《Hugo 主题 Nuo 文章样式预览》 这篇文章集中说明主题所支持的 Markdown 语法和 Hugo Shortcodes 插件，你也可以在这里预览到他们的样子。如果你不喜欢某些样式，可以去</description>
+    </item>
     
     <item>
       <title>h5直播技术探索</title>
