@@ -30,15 +30,6 @@
     </item>
     
     <item>
-      <title>React Jest</title>
-      <link>https://hellohy.github.io/post/react-jest/</link>
-      <pubDate>Mon, 23 Jul 2018 01:46:51 +0800</pubDate>
-      
-      <guid>https://hellohy.github.io/post/react-jest/</guid>
-      <description>初探前端测试框架 Jest 前端测试工具一览 前端测试工具也和前端的框架一样纷繁复杂，其中常见的测试工具，大致可分为测试框架、断言库、测试覆盖率工具等几</description>
-    </item>
-    
-    <item>
       <title>Chrome DevTools Profiler(Memory)</title>
       <link>https://hellohy.github.io/post/chrome-devtool-profiler/</link>
       <pubDate>Sun, 01 Jul 2018 04:29:46 +0800</pubDate>
@@ -99,15 +90,6 @@
       
       <guid>https://hellohy.github.io/post/css-fake-fixed/</guid>
       <description>通常，大家都知道fixed属性是相对于屏幕视口（viewport)的位置来指定元素位置，元素的位置在屏幕滚动时不会改变。 需求 在实际项目中，遇</description>
-    </item>
-    
-    <item>
-      <title>es6-cheatsheet</title>
-      <link>https://hellohy.github.io/post/learn-es6/</link>
-      <pubDate>Sun, 04 Dec 2016 23:05:33 +0000</pubDate>
-      
-      <guid>https://hellohy.github.io/post/learn-es6/</guid>
-      <description>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块</description>
     </item>
     
   </channel>

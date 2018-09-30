@@ -20,14 +20,5 @@
       <description>实现js深浅拷贝的几种方法 浅拷贝 只复制对象的第一层键值对。 // 浅拷贝实现 function shadowCopy(target, source){ if( !source || typeof source !== &#39;object&#39;){ return; } // 这个方法有点小trick，target一定得</description>
     </item>
     
-    <item>
-      <title>es6-cheatsheet</title>
-      <link>https://hellohy.github.io/post/learn-es6/</link>
-      <pubDate>Sun, 04 Dec 2016 23:05:33 +0000</pubDate>
-      
-      <guid>https://hellohy.github.io/post/learn-es6/</guid>
-      <description>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。 Table of Contents var 与 let / const 声明 代码执行块</description>
-    </item>
-    
   </channel>
 </rss>

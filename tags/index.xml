@@ -57,15 +57,6 @@
     </item>
     
     <item>
-      <title>Es6</title>
-      <link>https://hellohy.github.io/tags/es6/</link>
-      <pubDate>Sun, 04 Dec 2016 23:05:33 +0000</pubDate>
-      
-      <guid>https://hellohy.github.io/tags/es6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Fixed</title>
       <link>https://hellohy.github.io/tags/fixed/</link>
       <pubDate>Mon, 14 Aug 2017 21:05:16 +0000</pubDate>
@@ -102,15 +93,6 @@
     </item>
     
     <item>
-      <title>Jest</title>
-      <link>https://hellohy.github.io/tags/jest/</link>
-      <pubDate>Mon, 23 Jul 2018 01:46:51 +0800</pubDate>
-      
-      <guid>https://hellohy.github.io/tags/jest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Js</title>
       <link>https://hellohy.github.io/tags/js/</link>
       <pubDate>Wed, 16 Aug 2017 14:46:58 +0000</pubDate>
@@ -131,7 +113,7 @@
     <item>
       <title>React</title>
       <link>https://hellohy.github.io/tags/react/</link>
-      <pubDate>Mon, 23 Jul 2018 01:46:51 +0800</pubDate>
+      <pubDate>Mon, 18 Dec 2017 20:37:18 +0000</pubDate>
       
       <guid>https://hellohy.github.io/tags/react/</guid>
       <description></description>
@@ -143,15 +125,6 @@
       <pubDate>Tue, 20 Mar 2018 12:06:29 +0000</pubDate>
       
       <guid>https://hellohy.github.io/tags/tarjan/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://hellohy.github.io/tags/test/</link>
-      <pubDate>Mon, 23 Jul 2018 01:46:51 +0800</pubDate>
-      
-      <guid>https://hellohy.github.io/tags/test/</guid>
       <description></description>
     </item>
     
